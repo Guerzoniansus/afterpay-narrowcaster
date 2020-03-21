@@ -1,0 +1,94 @@
+/* FROM HERE ON IS SPECIFICALLY FOR editpages.php */
+
+.plus-icon {
+    color: green;
+    width: 50px;
+    height: 50px;
+    font-size: 40px;
+    background-color: transparent;
+    border: none;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer
+}
+
+.plus-icon:hover {
+    background-color: #e0e0e0;
+    color: darkgreen;
+}
+
+.page-container {
+    width: 420px;
+    height: 200px;
+    margin: 20px;
+    display: inline-block;
+    padding: 10px;
+}
+
+.pages-containers-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.page-container-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.page-layout-image-container {
+    background-color: gray;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    cursor: pointer;
+}
+
+.page-layout-image-container:hover {
+    background-color: darkgray;
+}
+
+.edit-icon {
+    cursor: pointer;
+}
+
+.overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+}
+
+.settings-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size:20px;
+    color: white;
+    width: 300px;
+    padding: 20px 14px 20px 14px;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    background-color: #595959;
+}
+
+#page-settings-layout {
+    width: 500px;
+}
+
+.settings-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+
+
