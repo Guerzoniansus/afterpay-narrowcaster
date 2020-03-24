@@ -50,8 +50,8 @@ function insertWidgetContainer(array $widgets, int $widgetIndex) {
                 <h1 id="<?= $widgetIndex ?>" class="plus-icon add-widget-plus-button">+</h1>
             <? endif; ?>
             <div id="<?= $widgetName ?>" class="widget-content mx-auto my-auto">
+                <input type="hidden" name="widget-index" value="<?= $widgetIndex ?>">
                 <?
-
                 // If in edit mode (aka admin adding widgets):
                 // Select widgetname-edit.php to get the editor version
                 // Or the regular widgetname.php if a special edit version does not exist
@@ -193,4 +193,8 @@ function loadWidgets() {
         </div>
         <?php
     }
+
+    ?>
+    <input id="pageLayoutHiddenInput" type="hidden" name="pageLayout" value="<?= $page->getLayoutAsString(); ?>">
+    <?php
 }
