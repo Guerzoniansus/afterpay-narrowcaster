@@ -32,9 +32,13 @@ function addWidget(widgetName) {
 $(document).ready(function() {
 
     // Page name gets inserted into hidden input through PHP and GET parameter in the url
-    pageName = $("#pageNameHiddenInput").val();
+    // If page exists:
+    if ($("#pageNameHiddenInput").val()) {
+        pageName = $("#pageNameHiddenInput").val();
+        loadWidgets();
+    }
 
-    loadWidgets();
+
     hideOverlay();
 
     $(document).on('click', '.add-widget-plus-button', function() {

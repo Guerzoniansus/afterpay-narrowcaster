@@ -72,8 +72,8 @@ if (!empty($_GET["pageName"])) {
         </div>
 
 
-        <input id="pageNameHiddenInput" type="hidden" name="pageName" value="<?= $pageName ?>">
         <? endif; ?>
+        <input id="pageNameHiddenInput" type="hidden" name="pageName" value="<?= $pageName ?>">
     </div>
 </div>
 
