@@ -49,7 +49,7 @@ function insertWidgetContainer(array $widgets, int $widgetIndex) {
             <? if ($edit == true): ?>
                 <h1 id="<?= $widgetIndex ?>" class="plus-icon add-widget-plus-button">+</h1>
             <? endif; ?>
-            <div id="<?= $widgetName ?>" class="widget-content mx-auto my-auto">
+            <div id="<?= $widgetName ?>" class="widget-content mx-auto my-auto w-100 h-100">
                 <?
 
                 // If in edit mode (aka admin adding widgets):

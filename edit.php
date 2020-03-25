@@ -84,6 +84,7 @@ if (!empty($_GET["pageName"])) {
         <img id="empty" class="widget-img" src="images/widget-icons/delete.png">
         <img id="orders" class="widget-img" src="images/widget-icons/orders.png">
         <img id="orders" class="widget-img" src="images/widget-icons/orders.png">
+        <img id="weather" class="widget-img" src="images/widget-icons/weather.png">
     </div>
 </div>
 
