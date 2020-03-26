@@ -24,7 +24,7 @@ function addWidget(widgetName) {
         widgetName, widgetName,
         widgetIndex: selectedContainer
     }, function() {
-        loadWidgets();
+        location.reload();
     });
     //TODO: Error checking? Maybe later
 }
