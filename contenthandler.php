@@ -22,7 +22,7 @@ if (!empty($_POST["action"])) {
  * @param array $widgets
  * @param int $widgetIndexI
  */
-function insertWidgetContainer(array $widgets, int $widgetIndex) {
+function insertWidgetContainer(array $widgets, int $widgetIndex, int $height) {
     $widgetName = $widgets[$widgetIndex - 1];
     $edit = $_POST["edit"];
 
@@ -45,7 +45,7 @@ function insertWidgetContainer(array $widgets, int $widgetIndex) {
 
     else {
         ?>
-        <div id="<?= $widgetIndex ?>" class="widget-container w-100 h-100 border">
+        <div id="<?= $widgetIndex ?>" class="widget-container w-100 border" style="height: <?= $height ?>px;">
             <? if ($edit == true): ?>
                 <h1 id="<?= $widgetIndex ?>" class="plus-icon add-widget-plus-button">+</h1>
             <? endif; ?>
@@ -91,11 +91,14 @@ function loadWidgets() {
     $page = getPage($pageName);
     $widgets = $page->widgets;
 
+    $smallHeight = 425;
+    $tallHeight = 850;
+
     if ($page->getLayoutAsString() == "1") {
         ?>
-        <div class="row" style="height: 850px">
+        <div class="row" style="height: <?=$tallHeight?>px">
             <div class="col-12">
-                <? insertWidgetContainer($widgets, 1); ?>
+                <? insertWidgetContainer($widgets, 1, $tallHeight); ?>
             </div>
         </div>
         <?php
@@ -103,14 +106,14 @@ function loadWidgets() {
 
     else if ($page->getLayoutAsString() == "2-horizontal") {
         ?>
-        <div class="row" style="height: 425px">
+        <div class="row" style="height: <?=$smallHeight?>px;">
             <div class="col-12">
-                <? insertWidgetContainer($widgets, 1); ?>
+                <? insertWidgetContainer($widgets, 1, $smallHeight); ?>
             </div>
         </div>
-        <div class="row" style="height: 425px">
+        <div class="row" style="height: <?=$smallHeight?>px;">
             <div class="col-12">
-                <? insertWidgetContainer($widgets, 2); ?>
+                <? insertWidgetContainer($widgets, 2, $smallHeight); ?>
             </div>
         </div>
         <?php
@@ -118,12 +121,12 @@ function loadWidgets() {
 
     else if ($page->getLayoutAsString() == "2-vertical") {
         ?>
-        <div class="row" style="height: 850px;">
+        <div class="row" style="height: <?=$tallHeight?>px;">
             <div class="col-6">
-                <? insertWidgetContainer($widgets, 1); ?>
+                <? insertWidgetContainer($widgets, 1, $tallHeight); ?>
             </div>
             <div class="col-6">
-                <? insertWidgetContainer($widgets, 2); ?>
+                <? insertWidgetContainer($widgets, 2, $tallHeight); ?>
             </div>
         </div>
         <?php
@@ -131,19 +134,19 @@ function loadWidgets() {
 
     else if ($page->getLayoutAsString() == "1-2") {
         ?>
-        <div class="row" style="height: 850px;">
+        <div class="row" style="height: <?=$tallHeight?>px;">
             <div class="col-6">
-                <? insertWidgetContainer($widgets, 1); ?>
+                <? insertWidgetContainer($widgets, 1, $tallHeight); ?>
             </div>
             <div class="col-6">
-                <div class="row" style="height: 425px;">
+                <div class="row" style="height: <?=$smallHeight?>px;">
                     <div class="col-12">
-                        <? insertWidgetContainer($widgets, 2); ?>
+                        <? insertWidgetContainer($widgets, 2, $smallHeight); ?>
                     </div>
                 </div>
-                <div class="row" style="height: 425px;">
+                <div class="row" style="height: <?=$smallHeight?>px;">
                     <div class="col-12">
-                        <? insertWidgetContainer($widgets, 3); ?>
+                        <? insertWidgetContainer($widgets, 3, $smallHeight); ?>
                     </div>
                 </div>
             </div>
@@ -153,21 +156,21 @@ function loadWidgets() {
 
     else if ($page->getLayoutAsString() == "2-1") {
         ?>
-        <div class="row" style="height: 850px;">
+        <div class="row" style="height: <?=$tallHeight?>px">
             <div class="col-6">
-                <div class="row" style="height: 425px;">
+                <div class="row" style="height: <?=$smallHeight?>px;">
                     <div class="col-12">
-                        <? insertWidgetContainer($widgets, 1); ?>
+                        <? insertWidgetContainer($widgets, 1, $smallHeight); ?>
                     </div>
                 </div>
-                <div class="row" style="height: 425px;">
+                <div class="row" style="height: <?=$smallHeight?>px;">
                     <div class="col-12">
-                        <? insertWidgetContainer($widgets, 2); ?>
+                        <? insertWidgetContainer($widgets, 2, $smallHeight); ?>
                     </div>
                 </div>
             </div>
             <div class="col-6">
-                <? insertWidgetContainer($widgets, 3); ?>
+                <? insertWidgetContainer($widgets, 3, $tallHeight); ?>
             </div>
         </div>
         <?php
@@ -175,20 +178,20 @@ function loadWidgets() {
 
     else if ($page->getLayoutAsString() == "4") {
         ?>
-        <div class="row" style="height: 425px;">
+        <div class="row" style="height: <?=$smallHeight?>px;">
             <div class="col-6">
-                <? insertWidgetContainer($widgets, 1); ?>
+                <? insertWidgetContainer($widgets, 1, $smallHeight); ?>
             </div>
             <div class="col-6">
-                <? insertWidgetContainer($widgets, 2); ?>
+                <? insertWidgetContainer($widgets, 2, $smallHeight); ?>
             </div>
         </div>
         <div class="row" style="height: 425px;">
             <div class="col-6">
-                <? insertWidgetContainer($widgets, 3); ?>
+                <? insertWidgetContainer($widgets, 3, $smallHeight); ?>
             </div>
             <div class="col-6">
-                <? insertWidgetContainer($widgets, 4); ?>
+                <? insertWidgetContainer($widgets, 4, $smallHeight); ?>
             </div>
         </div>
         <?php
