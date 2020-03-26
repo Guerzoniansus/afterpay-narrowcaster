@@ -61,6 +61,29 @@ function getPage(string $pageName) : ?Page {
  */
 function deletePage(string $pageName) {
     unlink(getcwd() . "/pages/" . strtolower($pageName) . ".txt");
+
+    deleteTextWidgetFiles($pageName);
+}
+
+/**
+ * Remove files of the text editor widget that are related to this page
+ * @param string $pageName
+ */
+function deleteTextWidgetFiles(string $pageName) {
+    $dir = "widgets/text/" . $pageName;
+
+    if (is_dir($dir)) {
+        $objects = scandir($dir);
+        foreach ($objects as $object) {
+            if ($object != "." && $object != "..") {
+                if (is_dir($dir. DIRECTORY_SEPARATOR .$object) && !is_link($dir."/".$object))
+                    rrmdir($dir. DIRECTORY_SEPARATOR .$object);
+                else
+                    unlink($dir. DIRECTORY_SEPARATOR .$object);
+            }
+        }
+        rmdir($dir);
+    }
 }
 
 /**
@@ -73,12 +96,13 @@ function addWidget() {
 
     $page = getPage($pageName);
     $page->widgets[$widgetIndex - 1] = $widgetName;
-    deletePage($pageName);
     savePage($page);
 
     // to make sure the file doesn't stay open and prevents loading and weird bugs
     die();
 }
+
+
 
 /**
  * Update the page with $option and $value
@@ -102,7 +126,6 @@ function updatePage() {
         $page->amount = $value;
     }
 
-    deletePage($pageName);
     savePage($page);
 }
 

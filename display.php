@@ -26,6 +26,13 @@ $pages = getAllPages();
 <body>
 
 <div class="container-fluid">
+    <script>
+        // This script is so widgets can do stuff for individual pages
+        var pageNames = [];
+        <? for ($i = 0; $i < count($pages); $i++): ?>
+        pageNames[<?= $i ?>] = "<?= $pages[$i]->pageName ?>";
+        <? endfor; ?>
+    </script>
     <!-- Top bar -->
     <div class="row" id="navbar">
         <div class="col-1">
