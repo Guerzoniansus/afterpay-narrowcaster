@@ -45,12 +45,13 @@ function insertWidgetContainer(array $widgets, int $widgetIndex, int $height) {
 
     else {
         ?>
-        <div id="<?= $widgetIndex ?>" class="widget-container w-100 border" style="height: <?= $height ?>px;">
+        <div id="<?= $widgetIndex ?>" class="widget-container w-100 border page-<?= $_POST["pageName"] ?>" style="height: <?= $height ?>px;">
             <? if ($edit == true): ?>
                 <h1 id="<?= $widgetIndex ?>" class="plus-icon add-widget-plus-button">+</h1>
             <? endif; ?>
             <div id="<?= $widgetName ?>" class="widget-content mx-auto my-auto">
                 <input type="hidden" name="widget-index" value="<?= $widgetIndex ?>">
+                <input type="hidden" name="pageName" value="<?= $_POST["pageName"] ?>">
                 <?
                 // If in edit mode (aka admin adding widgets):
                 // Select widgetname-edit.php to get the editor version
