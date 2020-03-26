@@ -32,8 +32,24 @@ function CallAPI($method, $url, $data = false)
     $result = curl_exec($curl);
 
     curl_close($curl);
-
     return $result;
 }
-echo CallAPI("POST","api.openweathermap.org/data/2.5/weather?id=2754669&appid=4bbb93bb09fb3e81168d23a070f612b5");
+$strjson = CallAPI("POST","api.openweathermap.org/data/2.5/weather?id=2754669&appid=4bbb93bb09fb3e81168d23a070f612b5");
+$decodejson = json_decode($strjson, true);
+echo var_dump($decodejson);
+foreach($decodejson as $item){
+    $type = gettype($item);
+    if($type == "array"){
+        foreach($item as $items){
+            $types = gettype($items);
+            if($types == "array"){
+                foreach($items as $itemss){
+                    echo $itemss . "<br/><br/><br/>";
+                }
+            }else echo $items . "<br/><br/>";
+        }
+    }
+    else echo $item . "<br/>";
+}
+echo "<h1>Het weer in ".$decodejson['name']."</h1>";
 ?>
