@@ -7,7 +7,9 @@ class Page {
     public string $pageName;
 
     // Whether this page should be included in the slideshow or not
-    public bool $visible;
+    // KEEP IN MIND THAT THIS IS A STRING "true" OR "false"
+    // FOR SOME STUPID REASON BOOLS WOULDNT WORK PROPERLY WITH SAVING
+    public string $visible;
 
     // Amount of widgets
     public int $amount;

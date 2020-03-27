@@ -41,6 +41,7 @@ function sendLayoutData() {
     $ajaxData["amount"] = $page->amount;
     $ajaxData["twoLayout"] = $page->twoLayout;
     $ajaxData["threeLayout"] = $page->threeLayout;
+    $ajaxData["visible"] = $page->visible;
     echo json_encode($ajaxData);
 }
 
@@ -126,6 +127,10 @@ function updatePage() {
         $page->amount = $value;
     }
 
+    else if ($option == "visible") {
+        $page->visible = $value;
+    }
+
     savePage($page);
 }
 
@@ -169,7 +174,11 @@ function loadPages() {
             <div id="<?= $page->pageName ?>" class="page-container">
                 <div class="page-container-top">
                     <h3><?= $page->pageName ?></h3>
-                    <img id="<?= $page->pageName ?>" class="edit-icon open-settings-button" height="25px" width="25px" src="images/edit.png">
+                    <div>
+                        <img id="<?= $page->pageName ?>" class="edit-icon visible-icon"
+                             src="images/<?= $page->visible == "true" ? "eye-solid" : "eye-slash-solid"?>.svg">
+                        <img id="<?= $page->pageName ?>" class="edit-icon open-settings-button" src="images/edit.png">
+                    </div>
                 </div>
                 <div id="<?= $page->pageName ?>" class="page-layout-image-container">
                     <img class="mx-auto d-block" src="images/layouts/<?= $page->getLayoutAsString() ?>.png">
@@ -204,7 +213,7 @@ function addPage() {
 
     $page = new Page();
     $page->pageName = $name;
-    $page->visible = true;
+    $page->visible = "true";
     $page->amount = 4;
     $page->widgets = ["empty", "empty", "empty", "empty"];
     $page->twoLayout = $page->defaultTwoLayout;

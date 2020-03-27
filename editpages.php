@@ -78,15 +78,15 @@ else {
         <br>
         <div class="settings-row">
             <p>Layout</p>
-            <img id="page-setting-button-layout" class="edit-icon" height="25px" width="25px" src="images/edit.png">
+            <img id="page-setting-button-layout" class="edit-icon" src="images/edit.png">
         </div>
         <div class="settings-row">
             <p>Time To Wait</p>
-            <img id="page-setting-button-timeout" class="edit-icon" height="25px" width="25px" src="images/edit.png">
+            <img id="page-setting-button-timeout" class="edit-icon" src="images/edit.png">
         </div>
         <div class="settings-row">
             <p>Delete Page</p>
-            <img id="page-setting-button-delete" class="edit-icon" height="25px" width="25px" src="images/edit.png">
+            <img id="page-setting-button-delete" class="edit-icon" src="images/edit.png">
         </div>
     </div>
 </div>

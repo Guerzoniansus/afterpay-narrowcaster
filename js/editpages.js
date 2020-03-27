@@ -69,6 +69,37 @@ $(document).ready(function() {
     });
 
     /**
+     * Change page to visible / not visible
+     */
+    $(document).on('click', '.visible-icon', function(){
+        var pageName = $(this).attr("id");
+        var src = $(this).attr("src");
+        var visible = true;
+
+        if (src == "images/eye-solid.svg") {
+            src = "images/eye-slash-solid.svg";
+            visible = false;
+        }
+        else if (src == "images/eye-slash-solid.svg") {
+            src = "images/eye-solid.svg";
+            visible = true;
+        }
+
+        //$(this).attr('src', src);
+
+        $.post("../pagehandler.php",
+            {
+                action: "updatePage",
+                option: "visible",
+                value: visible,
+                pageName: pageName
+            },
+            function() {
+                loadPages();
+            });
+    });
+
+    /**
      * Open general settings
      */
     $(document).on('click', '.open-settings-button', function(){
@@ -118,7 +149,8 @@ $(document).ready(function() {
         var container = $(".settings-container");
 
         // if the target of the click isn't the container nor a descendant of the container
-        if (!container.is(e.target) && container.has(e.target).length === 0)
+        if (!container.is(e.target) && container.has(e.target).length === 0
+            && ($("#overlay-page-settings").css("display") != "none" || $("#overlay-page-settings-layout").css("display") != "none"))
         {
             $(".overlay").hide();
             loadPages();

@@ -22,6 +22,8 @@ $pages = getAllPages();
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/display.css">
     <script src="js/display.js"></script>
+
+    <!-- Unedited images from Font Awesome were used. License at https://fontawesome.com/license -->
 </head>
 <body>
 
@@ -29,9 +31,13 @@ $pages = getAllPages();
     <script>
         // This script is so widgets can do stuff for individual pages
         var pageNames = [];
-        <? for ($i = 0; $i < count($pages); $i++): ?>
-        pageNames[<?= $i ?>] = "<?= $pages[$i]->pageName ?>";
-        <? endfor; ?>
+        <? for ($i = 0; $i < count($pages); $i++) {
+            if ($pages[$i]->visible == "true") {
+                ?>
+                pageNames[<?= $i ?>] = "<?= $pages[$i]->pageName ?>";
+                <?
+            }
+        } ?>
     </script>
     <!-- Top bar -->
     <div class="row" id="navbar">
@@ -56,6 +62,7 @@ $pages = getAllPages();
             </ol>
             <div class="carousel-inner">
                 <? for ($i = 0; $i < count($pages); $i++): ?>
+                <? if ($pages[$i]->visible == "false") continue; ?>
                     <div class="carousel-item <?= $i == 0 ? 'active' : ''?>">
                         <div id="widget-containers-container" class="col-12 mx-auto my-auto">
                             <?= loadWidgetsFromArguments(false, $pages[$i]->pageName) ?>
