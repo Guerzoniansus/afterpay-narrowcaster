@@ -58,7 +58,7 @@ if (!empty($_GET["pageName"])) {
     <!-- Top bar -->
     <div class="row" id="navbar">
         <div class="col-2">
-            <a href="editpages.php" style="text-decoration: none"><h1 id="page-button">◄ Pages</h1></a>
+            <a href="editpages.php" style="text-decoration: none;"><h1 id="page-button">◄ Pages</h1></a>
         </div>
         <div class="col-8">
             <div style="display: flex; justify-content: center; align-items: center;">

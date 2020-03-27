@@ -38,6 +38,14 @@
     transform: scale(1.1);
 }
 
+#page-button {
+    color: black;
+}
+
+#page-button:hover {
+    transform: scale(1.1);
+}
+
 
 .widget-container {
     display: flex;
