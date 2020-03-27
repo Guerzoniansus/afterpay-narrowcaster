@@ -28,8 +28,8 @@ function insertWidgetContainer(array $widgets, int $widgetIndex, int $height) {
 
     if ($widgetName == "empty") {
         ?>
-        <div class="widget-container empty-widget w-100 h-100 mx-auto my-auto border">
-            <h1 id="<?= $widgetIndex ?>" class="plus-icon add-widget-plus-button">+</h1>
+        <div class="widget-container empty-widget w-100 h-100 mx-auto my-auto border" style="height: <?= $height ?>px;">
+            <img id="<?= $widgetIndex ?>" class="plus-icon add-widget-plus-button" src="images/plus-solid.svg">
         </div>
         <?php
     }
@@ -47,7 +47,7 @@ function insertWidgetContainer(array $widgets, int $widgetIndex, int $height) {
         ?>
         <div id="<?= $widgetIndex ?>" class="widget-container w-100 border page-<?= $_POST["pageName"] ?>" style="height: <?= $height ?>px;">
             <? if ($edit == true): ?>
-                <h1 id="<?= $widgetIndex ?>" class="plus-icon add-widget-plus-button">+</h1>
+                <img id="<?= $widgetIndex ?>" class="plus-icon-small add-widget-plus-button" src="images/plus-solid.svg">
             <? endif; ?>
             <div id="<?= $widgetName ?>" class="widget-content mx-auto my-auto">
                 <input type="hidden" name="widget-index" value="<?= $widgetIndex ?>">
@@ -92,8 +92,8 @@ function loadWidgets() {
     $page = getPage($pageName);
     $widgets = $page->widgets;
 
-    $smallHeight = 425;
-    $tallHeight = 850;
+    $smallHeight = 475;
+    $tallHeight = $smallHeight * 2;
 
     if ($page->getLayoutAsString() == "1") {
         ?>
@@ -187,7 +187,7 @@ function loadWidgets() {
                 <? insertWidgetContainer($widgets, 2, $smallHeight); ?>
             </div>
         </div>
-        <div class="row" style="height: 425px;">
+        <div class="row" style="height: <?=$smallHeight?>px;">
             <div class="col-6">
                 <? insertWidgetContainer($widgets, 3, $smallHeight); ?>
             </div>

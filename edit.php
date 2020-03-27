@@ -45,6 +45,10 @@ if (!empty($_GET["pageName"])) {
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/edit.css">
     <script src="js/edit.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+
+    <!-- Unedited images from Font Awesome were used. License at https://fontawesome.com/license -->
 </head>
 <body>
 
@@ -53,21 +57,25 @@ if (!empty($_GET["pageName"])) {
 
     <!-- Top bar -->
     <div class="row" id="navbar">
-        <div class="col-1">
-            <img src="https://i.imgur.com/01voZlO.png">
+        <div class="col-2">
+            <a href="editpages.php" style="text-decoration: none"><h1 id="page-button">◄ Pages</h1></a>
         </div>
-        <div class="col-10">
-            <h1 align="center">Afterpay</h1>
+        <div class="col-8">
+            <div style="display: flex; justify-content: center; align-items: center;">
+                <h1 align="center"><b>Page: <?= $pageName ?></b></h1>
+            </div>
         </div>
-        <div class="col-1">
-            <a href="editpages.php"><h1 align="right" id="page-button">+</h1></a>
+        <div class="col-2">
+            <div class="float-right">
+                <a href="display.php" target="_blank"><img id="display-redirect-button" title="Open display page in a new tab" class="img" src="images/redirect.svg" height="40px"></a>
+            </div>
         </div>
     </div>
 
     <!-- Widgets -->
     <div class="row content" style="height: 90vh">
         <? if ($pageName == null): ?>
-        <h1>No page selected. Click the + icon on the top right and choose a page to edit.</h1>
+        <h1>No page selected. Click pages on the top left and choose a page to edit.</h1>
         <? else: ?>
 
         <!-- All widgets get loaded inside this div through javascript -->
@@ -84,12 +92,16 @@ if (!empty($_GET["pageName"])) {
 <!-- Images of widgets -->
 <div id="overlay-widget-select" class="overlay">
     <div id="widget-select">
+        <img id="orders" class="widget-img" src="images/widget-icons/orders.png"
+        title="Display order numbers">
+        <img id="text" class="widget-img" src="images/widget-icons/text.png"
+        title="Display formatted text and images">
+        <img id="empty" class="widget-img" src="images/widget-icons/delete.png"
+        title="Delete this widget">
         <img id="orders" class="widget-img" src="images/widget-icons/orders.png">
-        <img id="text" class="widget-img" src="images/widget-icons/text.png">
-        <img id="empty" class="widget-img" src="images/widget-icons/delete.png">
         <img id="orders" class="widget-img" src="images/widget-icons/orders.png">
-        <img id="orders" class="widget-img" src="images/widget-icons/orders.png">
-        <img id="weather" class="widget-img" src="images/widget-icons/weather.png">
+        <img id="weather" class="widget-img" src="images/widget-icons/weather.png"
+        title="Display weather">
     </div>
 </div>
 

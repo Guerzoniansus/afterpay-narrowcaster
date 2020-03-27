@@ -102,7 +102,7 @@ $(document).ready(function() {
     /**
      * Open general settings
      */
-    $(document).on('click', '.open-settings-button', function(){
+    $(document).on('click', '#general-settings-button', function(){
         selectedPage = $(this).attr("id");
         $("#overlay-page-settings").show();
     });
@@ -110,7 +110,8 @@ $(document).ready(function() {
     /**
      * Open layout settings
      */
-    $(document).on('click', '#page-setting-button-layout', function(){
+    $(document).on('click', '.open-settings-button', function(){
+        selectedPage = $(this).attr("id");
         var pageName = selectedPage;
 
         // Post request to get layout data to fill the input dropdown buttons
@@ -123,23 +124,30 @@ $(document).ready(function() {
         }, "json");
 
         $(".overlay").hide();
+        $("#layout-settings-title").text("Layout Settings (" + pageName + ")");
         $("#overlay-page-settings-layout").show();
     });
 
     /**
      * Clicking on "delete" button
      */
-    $(document).on('click', '#page-setting-button-delete', function(){
+    $(document).on('click', '.page-setting-button-delete', function(){
 
-        var pageName = selectedPage;
-
-        $.post("../pagehandler.php", {action: "deletePage", pageName: pageName}, function() {
-            $(".overlay").hide();
-            loadPages();
-        });
-
+        selectedPage = $(this).attr("id");
+        $("#delete-confirmation-modal").modal();
 
     });
+
+    /**
+     * Confirm deleting a page
+     */
+    $(document).on('click', '#delete-confirmation-button', function(){
+        $.post("../pagehandler.php", {action: "deletePage", pageName: selectedPage}, function() {
+            loadPages();
+            $("#delete-confirmation-modal").modal('hide');
+        });
+    });
+
 
     /**
      * Hide setting overlay menus when clicking outside of it

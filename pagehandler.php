@@ -175,9 +175,10 @@ function loadPages() {
                 <div class="page-container-top">
                     <h3><?= $page->pageName ?></h3>
                     <div>
-                        <img id="<?= $page->pageName ?>" class="edit-icon visible-icon"
+                        <img id="<?= $page->pageName ?>" class="edit-icon visible-icon" title="Choose whether this page should be displayed or not"
                              src="images/<?= $page->visible == "true" ? "eye-solid" : "eye-slash-solid"?>.svg">
-                        <img id="<?= $page->pageName ?>" class="edit-icon open-settings-button" src="images/edit.png">
+                        <img id="<?= $page->pageName ?>" class="edit-icon open-settings-button" src="images/edit.png" title="Change layout settings">
+                        <img id="<?= $page->pageName ?>" class="edit-icon page-setting-button-delete" src="images/delete.svg" title="Delete page">
                     </div>
                 </div>
                 <div id="<?= $page->pageName ?>" class="page-layout-image-container">
