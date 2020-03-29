@@ -58,7 +58,7 @@ if (!empty($_GET["pageName"])) {
     <!-- Top bar -->
     <div class="row" id="navbar">
         <div class="col-2">
-            <a href="editpages.php" style="text-decoration: none;"><h1 id="page-button">◄ Pages</h1></a>
+            <a href="editpages.php" style="text-decoration: none;" title="Go back to all pages"><h1 id="page-button">◄ Pages</h1></a>
         </div>
         <div class="col-8">
             <div style="display: flex; justify-content: center; align-items: center;">
@@ -92,16 +92,14 @@ if (!empty($_GET["pageName"])) {
 <!-- Images of widgets -->
 <div id="overlay-widget-select" class="overlay">
     <div id="widget-select">
-        <img id="orders" class="widget-img" src="images/widget-icons/orders.png"
-        title="Display order numbers">
-        <img id="text" class="widget-img" src="images/widget-icons/text.png"
-        title="Display formatted text and images">
         <img id="empty" class="widget-img" src="images/widget-icons/delete.png"
-        title="Delete this widget">
-        <img id="orders" class="widget-img" src="images/widget-icons/orders.png">
-        <img id="orders" class="widget-img" src="images/widget-icons/orders.png">
+             title="Delete this widget">
+        <img id="orders" class="widget-img" src="images/widget-icons/orders.png"
+             title="Display order numbers">
+        <img id="text" class="widget-img" src="images/widget-icons/text.png"
+             title="Display formatted text and images">
         <img id="weather" class="widget-img" src="images/widget-icons/weather.png"
-        title="Display weather">
+             title="Display weather">
     </div>
 </div>
 

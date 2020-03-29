@@ -181,7 +181,7 @@ function loadPages() {
                         <img id="<?= $page->pageName ?>" class="edit-icon page-setting-button-delete" src="images/delete.svg" title="Delete page">
                     </div>
                 </div>
-                <div id="<?= $page->pageName ?>" class="page-layout-image-container">
+                <div id="<?= $page->pageName ?>" class="page-layout-image-container" title="Click to edit this page">
                     <img class="mx-auto d-block" src="images/layouts/<?= $page->getLayoutAsString() ?>.png">
                 </div>
             </div>
