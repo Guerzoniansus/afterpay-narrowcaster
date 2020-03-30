@@ -91,15 +91,27 @@ if (!empty($_GET["pageName"])) {
 
 <!-- Images of widgets -->
 <div id="overlay-widget-select" class="overlay">
-    <div id="widget-select">
-        <img id="orders" class="widget-img" src="images/widget-icons/orders.png"
-             title="Display order numbers">
-        <img id="text" class="widget-img" src="images/widget-icons/text.png"
-             title="Display formatted text and images">
-        <img id="weather" class="widget-img" src="images/widget-icons/weather.png"
-             title="Display weather">
-        <img id="empty" class="widget-img" src="images/widget-icons/delete.png"
-             title="Delete this widget">
+    <div id="widget-select" style="display: flex; justify-content: space-between; flex-wrap: wrap; align-content: start;">
+        <div class="widget-img-div">
+            <p class="widget-img-text">Orders</p>
+            <img id="orders" class="widget-img" src="images/widget-icons/orders.png"
+                 title="Display order numbers">
+        </div>
+        <div class="widget-img-div">
+            <p class="widget-img-text">Text</p>
+            <img id="text" class="widget-img" src="images/widget-icons/text.png"
+                 title="Display formatted text and images">
+        </div>
+        <div class="widget-img-div">
+            <p class="widget-img-text">Weather</p>
+            <img id="weather" class="widget-img" src="images/widget-icons/weather.png"
+                 title="Display weather">
+        </div>
+        <div class="widget-img-div">
+            <p class="widget-img-text">Delete</p>
+            <img id="empty" class="widget-img" src="images/widget-icons/delete.png"
+                 title="Delete this widget">
+        </div>
     </div>
 </div>
 

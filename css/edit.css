@@ -67,11 +67,25 @@
     justify-content: center;
 }
 
+.widget-img-div {
+    width: 150px;
+    height: 200px;
+}
+
+.widget-img-text {
+    text-align: center;
+    margin-bottom: 0px;
+}
+
 .widget-img {
     width: 150px;
     height: 150px;
     cursor: pointer;
     padding: 10px;
+}
+
+.widget-img:hover {
+    transform: scale(1.07);
 }
 
 .overlay {
