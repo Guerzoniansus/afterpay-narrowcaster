@@ -13,12 +13,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $db = new DB();
         $action = $_POST["action"];
 
-        if ($action == "getOrders") {
-            echo $db->getOrders();
-        }
-
-        else if ($action == "updateOrders") {
-            $db->updateOrder($_POST["newAmount"]);
+        switch ($action) {
+            case "getOrders":
+                echo $db->getOrders();
+                break;
+            case "updateOrders":
+                $db->updateOrder($_POST["newAmount"]);
+                break;
+            case "updateBirthdayDisplay":
+                $db->updateBirthdayDisplay($_POST["employeeID"], $_POST["newValue"]);
+                break;
         }
     }
 }
@@ -31,8 +35,8 @@ class DB
     // Moet voor iedereen telkens naar zijn of haar eigen database aangepast worden
     public $host = "localhost";
     public $databaseName = "afterpay";
-    public $username = "root";     //for mamp
-    public $password = "klapot";     //for mamp
+    public $username = "root";
+    public $password = "klapot";
 
     /**
      * @return string
@@ -53,6 +57,46 @@ class DB
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         //$conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
         return $conn;
+    }
+
+    /**
+     * Change "birthdayDisplay" for employee with employeeID to a new value (true or false)
+     * @param int $employeeID
+     * @param string $newValue
+     * @return bool if operation went successful or not
+     */
+    public function updateBirthdayDisplay(int $employeeID, string $newValue) {
+        $sqlEdit = "UPDATE Employee SET birthdayDisplay = :newValue WHERE employeeID = :employeeID";
+
+        $stmtEdit = $conn = $this->createConnection()->prepare($sqlEdit);
+
+        $stmtEdit->bindValue(":newValue", $newValue, PDO::PARAM_STR);
+        $stmtEdit->bindValue(":employeeID", $employeeID, PDO::PARAM_INT);
+
+        $result = false;
+        if ($stmtEdit->execute()) {
+            $result = true;
+        }
+
+        $conn = null;
+        return $result;
+    }
+
+    /**
+     * @return array with ALL employees as Employee objects, sorted by employeeID, ascending
+     */
+    public function getAllEmployees(): array
+    {
+        $sql = "SELECT * FROM Employee ORDER BY employeeID ASC";
+
+        $conn = $this->createConnection();
+        $stmtSelect = $conn->prepare($sql);
+        $stmtSelect->execute();
+
+        $rows = $stmtSelect->fetchAll(PDO::FETCH_CLASS, "Employee");
+
+        $conn = null;
+        return $rows;
     }
 
     /**
