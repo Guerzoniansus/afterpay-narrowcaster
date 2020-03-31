@@ -30,6 +30,7 @@ $pages = getAllPages();
 <body>
 
 <div class="container-fluid">
+
     <script>
         // This script is so widgets can do stuff for individual pages
         var pageNames = [];
@@ -41,6 +42,7 @@ $pages = getAllPages();
             }
         } ?>
     </script>
+
     <!-- Top bar -->
     <div class="row" id="navbar">
         <div class="col-2">

@@ -45,14 +45,19 @@ $(document).ready(function() {
         loadWidgets();
     }
 
-
     hideOverlay();
 
+    /**
+     * Open widget select
+     */
     $(document).on('click', '.add-widget-plus-button', function() {
         selectedContainer = $(this).attr("id");
         $("#overlay-widget-select").show();
     });
 
+    /**
+     * Add widget after clicking on the image
+     */
     $(document).on('click', '.widget-img', function() {
         var widgetName = $(this).attr("id");
         hideOverlay();

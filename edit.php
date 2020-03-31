@@ -48,7 +48,7 @@ if (!empty($_GET["pageName"])) {
 
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
 
-    <!-- Unedited images from Font Awesome were used. License at https://fontawesome.com/license -->
+    <!-- Unedited and edited images from Font Awesome were used. License at https://fontawesome.com/license -->
 </head>
 <body>
 
@@ -82,7 +82,6 @@ if (!empty($_GET["pageName"])) {
         <div id="widget-containers-container" class="col-12 mx-auto my-auto">
 
         </div>
-
 
         <? endif; ?>
         <input id="pageNameHiddenInput" type="hidden" name="pageName" value="<?= $pageName ?>">

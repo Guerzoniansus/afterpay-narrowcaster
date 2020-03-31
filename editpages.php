@@ -38,7 +38,7 @@ else {
 
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
 
-    <!-- Unedited images from Font Awesome were used. License at https://fontawesome.com/license -->
+    <!-- Unedited and edited images from Font Awesome were used. License at https://fontawesome.com/license -->
 </head>
 <body>
 
@@ -61,20 +61,30 @@ else {
 
 
     <div class="row content" style="height: 100%">
-        <!-- Pages, gets loaded with javascript on document ready (loadPages()) -->
+        <!-- Pages get loaded here with javascript on document ready (loadPages()) -->
         <div class="col-10">
             <div class="pages-containers-container mx-auto"></div>
         </div>
 
         <!-- Add page button on the right -->
         <div class="col-2 my-auto mx-auto text-center" >
-            <input id="page-name-input" type="text" class="form-control mx-auto" name="page-name" placeholder="Page Name">
-            <p id="page-name-input-error" class="text-danger"></p>
-            <br>
             <img id="add-page-button" title="Add page" class="plus-icon" src="images/plus-solid.svg">
         </div>
     </div>
 
+</div>
+
+<!-- Input page name -->
+<div id="overlay-page-settings-name" class="overlay">
+    <div id="page-settings-name" class="settings-container pb-0" style="width: 520px;">
+        <div>
+            <p align="center" style="display: inline;">Enter a name for your page and press enter</p>
+            <button class="close-settings-button" type="button" style="align-self: flex-start" onclick="hideOverlay()">×</button>
+        </div>
+        <hr>
+        <input id="page-name-input" type="text" class="form-control mx-auto" name="page-name" placeholder="Page Name">
+        <p id="page-name-input-error" class="text-danger"></p>
+    </div>
 </div>
 
 <!-- General settings -->
@@ -86,8 +96,8 @@ else {
         </div>
         <hr>
         <div class="settings-row">
-            <p>Time to wait</p>
-            <input type="text" class="h-50 w-25" name="timeout" value="5">
+            <p>Time to wait (seconds)</p>
+            <input type="text" class="form-control h-50 w-25" name="timeout" value="5">
         </div>
     </div>
 </div>
@@ -126,6 +136,7 @@ else {
     </div>
 </div>
 
+<!-- Delete page confirmation window -->
 <div id="delete-confirmation-modal" class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">

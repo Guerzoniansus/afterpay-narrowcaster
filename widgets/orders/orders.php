@@ -2,8 +2,8 @@
 
 ?>
 
-<h1>Orders:</h1>
-<h2 class="orderAmount" align="center"></h2>
+<h1 style="font-size: 100px">Orders:</h1>
+<h2 style="font-size: 70px" class="orderAmount" align="center"></h2>
 
 <script>
 
