@@ -11,6 +11,10 @@ function hideOverlay() {
     $(".overlay").hide();
 }
 
+function stuffToDoLikeSavingBeforeThePageGetsReloaded() {
+    summernoteSaveAll();
+}
+
 /**
  * HEY, YOU! YOU THERE! ========== HEY LISTEN ====================
  * If you do addWidget("empty") it's the same thing as deleting a widget, NO NEED FOR EXTRA COMPLICATED CODE
@@ -24,6 +28,8 @@ function addWidget(widgetName) {
         widgetName, widgetName,
         widgetIndex: selectedContainer
     }, function() {
+        stuffToDoLikeSavingBeforeThePageGetsReloaded();
+
         location.reload();
     });
     //TODO: Error checking? Maybe later

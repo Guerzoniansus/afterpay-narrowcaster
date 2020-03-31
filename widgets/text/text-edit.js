@@ -10,7 +10,7 @@ $(document).ready(function() {
 
     // Save text on page load or refresh (page refreshes when widgets get loaded)
     $(window).on("beforeunload", function() {
-        summernoteSaveAll();
+        //summernoteSaveAll();
     })
 
     $(document).on("click", ".summernote-edit-button", function() {
@@ -61,10 +61,17 @@ function summernoteEdit(widgetIndex) {
 }
 
 function summernoteSaveAll() {
-    summernoteSave(1, false);
-    summernoteSave(2, false);
-    summernoteSave(3, false);
-    summernoteSave(4, false);
+
+    for (i = 1; i < 5; i++) {
+        try {
+            summernoteSave(i, false);
+        }
+        catch(error) {
+            // Just ignore the error, try catch is so stuff doesnt crash when
+            // 1 widget container doesn't actually have the text widget
+        }
+    }
+
 }
 
 function summernoteSave(widgetIndex, showMessage) {
