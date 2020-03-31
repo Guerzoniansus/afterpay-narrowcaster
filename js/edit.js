@@ -11,6 +11,11 @@ function hideOverlay() {
     $(".overlay").hide();
 }
 
+function stuffToDoLikeSavingBeforeThePageGetsReloaded() {
+    // Try catch because because otherwise it tries to do the function even when the function doesn't exist
+    try { summernoteSaveAll(); } catch (error) {};
+}
+
 /**
  * HEY, YOU! YOU THERE! ========== HEY LISTEN ====================
  * If you do addWidget("empty") it's the same thing as deleting a widget, NO NEED FOR EXTRA COMPLICATED CODE
@@ -24,6 +29,8 @@ function addWidget(widgetName) {
         widgetName, widgetName,
         widgetIndex: selectedContainer
     }, function() {
+        stuffToDoLikeSavingBeforeThePageGetsReloaded();
+
         location.reload();
     });
     //TODO: Error checking? Maybe later
@@ -38,14 +45,19 @@ $(document).ready(function() {
         loadWidgets();
     }
 
-
     hideOverlay();
 
+    /**
+     * Open widget select
+     */
     $(document).on('click', '.add-widget-plus-button', function() {
         selectedContainer = $(this).attr("id");
         $("#overlay-widget-select").show();
     });
 
+    /**
+     * Add widget after clicking on the image
+     */
     $(document).on('click', '.widget-img', function() {
         var widgetName = $(this).attr("id");
         hideOverlay();

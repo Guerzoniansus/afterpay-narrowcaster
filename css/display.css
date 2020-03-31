@@ -17,3 +17,23 @@
     align-items: center;
     justify-content: center;
 }
+
+.plus-icon {
+    display: none;
+}
+
+#topbar-time {
+    font-size: 60px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    line-height: inherit;
+    margin-bottom: 0;
+}
+
+#topbar-date {
+    font-size: 30px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}

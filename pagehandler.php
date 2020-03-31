@@ -41,6 +41,7 @@ function sendLayoutData() {
     $ajaxData["amount"] = $page->amount;
     $ajaxData["twoLayout"] = $page->twoLayout;
     $ajaxData["threeLayout"] = $page->threeLayout;
+    $ajaxData["visible"] = $page->visible;
     echo json_encode($ajaxData);
 }
 
@@ -61,6 +62,29 @@ function getPage(string $pageName) : ?Page {
  */
 function deletePage(string $pageName) {
     unlink(getcwd() . "/pages/" . strtolower($pageName) . ".txt");
+
+    deleteTextWidgetFiles($pageName);
+}
+
+/**
+ * Remove files of the text editor widget that are related to this page
+ * @param string $pageName
+ */
+function deleteTextWidgetFiles(string $pageName) {
+    $dir = "widgets/text/" . $pageName;
+
+    if (is_dir($dir)) {
+        $objects = scandir($dir);
+        foreach ($objects as $object) {
+            if ($object != "." && $object != "..") {
+                if (is_dir($dir. DIRECTORY_SEPARATOR .$object) && !is_link($dir."/".$object))
+                    rrmdir($dir. DIRECTORY_SEPARATOR .$object);
+                else
+                    unlink($dir. DIRECTORY_SEPARATOR .$object);
+            }
+        }
+        rmdir($dir);
+    }
 }
 
 /**
@@ -73,12 +97,13 @@ function addWidget() {
 
     $page = getPage($pageName);
     $page->widgets[$widgetIndex - 1] = $widgetName;
-    deletePage($pageName);
     savePage($page);
 
     // to make sure the file doesn't stay open and prevents loading and weird bugs
     die();
 }
+
+
 
 /**
  * Update the page with $option and $value
@@ -102,7 +127,10 @@ function updatePage() {
         $page->amount = $value;
     }
 
-    deletePage($pageName);
+    else if ($option == "visible") {
+        $page->visible = $value;
+    }
+
     savePage($page);
 }
 
@@ -146,9 +174,14 @@ function loadPages() {
             <div id="<?= $page->pageName ?>" class="page-container">
                 <div class="page-container-top">
                     <h3><?= $page->pageName ?></h3>
-                    <img id="<?= $page->pageName ?>" class="edit-icon open-settings-button" height="25px" width="25px" src="images/edit.png">
+                    <div>
+                        <img id="<?= $page->pageName ?>" class="edit-icon visible-icon" title="Choose whether this page should be displayed or not"
+                             src="images/<?= $page->visible == "true" ? "eye-solid" : "eye-slash-solid"?>.svg">
+                        <img id="<?= $page->pageName ?>" class="edit-icon open-settings-button" src="images/edit.png" title="Change layout settings">
+                        <img id="<?= $page->pageName ?>" class="edit-icon page-setting-button-delete" src="images/delete.svg" title="Delete page">
+                    </div>
                 </div>
-                <div id="<?= $page->pageName ?>" class="page-layout-image-container">
+                <div id="<?= $page->pageName ?>" class="page-layout-image-container" title="Click to edit this page">
                     <img class="mx-auto d-block" src="images/layouts/<?= $page->getLayoutAsString() ?>.png">
                 </div>
             </div>
@@ -181,7 +214,7 @@ function addPage() {
 
     $page = new Page();
     $page->pageName = $name;
-    $page->visible = true;
+    $page->visible = "true";
     $page->amount = 4;
     $page->widgets = ["empty", "empty", "empty", "empty"];
     $page->twoLayout = $page->defaultTwoLayout;

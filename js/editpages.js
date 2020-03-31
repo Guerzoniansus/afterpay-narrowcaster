@@ -7,6 +7,10 @@ function loadPages() {
     $(".pages-containers-container").load("pagehandler.php", {action: "load"});
 }
 
+function hideOverlay() {
+    $(".overlay").hide();
+}
+
 
 function addPage() {
 
@@ -14,8 +18,8 @@ function addPage() {
         $("#page-name-input-error").text("Name cannot be empty");
     }
 
-    else if (/^[A-Za-z0-9]+$/.test($("#page-name-input").val()) == false) {
-        $("#page-name-input-error").text("Name can only contain letters and numbers, no special characters or spaces");
+    else if (/^[A-Za-z0-9 ]+$/.test($("#page-name-input").val()) == false) {
+        $("#page-name-input-error").text("Name can only contain letters and numbers, no special characters");
     }
     else {
         var pageName = $("#page-name-input").val();
@@ -36,6 +40,7 @@ function addPage() {
                 else {
                     $("#page-name-input").val("");
                     loadPages();
+                    hideOverlay();
                 }
             }
         })
@@ -45,11 +50,21 @@ function addPage() {
 
 $(document).ready(function() {
 
-    $(".overlay").hide();
+    hideOverlay()
     loadPages();
 
     $("#add-page-button").click(function() {
-        addPage();
+        $("#overlay-page-settings-name").show();
+        $("#page-name-input").focus();
+    });
+
+    /**
+     * Pressing enter to submit page name
+     */
+    $(document).on('keyup', '#page-name-input', function(event) {
+        if (event.key == "Enter") {
+            addPage();
+        }
     });
 
     /**
@@ -63,15 +78,44 @@ $(document).ready(function() {
     /**
      * When clicking on a page, redirect to edit.php with the page name in URL as GET parameter
      */
-    $(document).on('click', '.page-layout-image-container', function(){
+    $(document).on('click', '.page-layout-image-container', function() {
         var pageName = $(this).attr("id");
         window.location.href = "../edit.php?pageName=" + pageName;
     });
 
     /**
+     * Change page to visible / not visible
+     */
+    $(document).on('click', '.visible-icon', function() {
+        var pageName = $(this).attr("id");
+        var src = $(this).attr("src");
+        var visible = true;
+
+        if (src == "images/eye-solid.svg") {
+            src = "images/eye-slash-solid.svg";
+            visible = false;
+        }
+        else if (src == "images/eye-slash-solid.svg") {
+            src = "images/eye-solid.svg";
+            visible = true;
+        }
+
+        $.post("../pagehandler.php",
+            {
+                action: "updatePage",
+                option: "visible",
+                value: visible,
+                pageName: pageName
+            },
+            function() {
+                loadPages();
+            });
+    });
+
+    /**
      * Open general settings
      */
-    $(document).on('click', '.open-settings-button', function(){
+    $(document).on('click', '#general-settings-button', function() {
         selectedPage = $(this).attr("id");
         $("#overlay-page-settings").show();
     });
@@ -79,7 +123,8 @@ $(document).ready(function() {
     /**
      * Open layout settings
      */
-    $(document).on('click', '#page-setting-button-layout', function(){
+    $(document).on('click', '.open-settings-button', function() {
+        selectedPage = $(this).attr("id");
         var pageName = selectedPage;
 
         // Post request to get layout data to fill the input dropdown buttons
@@ -91,36 +136,44 @@ $(document).ready(function() {
 
         }, "json");
 
-        $(".overlay").hide();
+        hideOverlay()
+        $("#layout-settings-title").text("Layout Settings (" + pageName + ")");
         $("#overlay-page-settings-layout").show();
     });
 
     /**
      * Clicking on "delete" button
      */
-    $(document).on('click', '#page-setting-button-delete', function(){
+    $(document).on('click', '.page-setting-button-delete', function() {
 
-        var pageName = selectedPage;
-
-        $.post("../pagehandler.php", {action: "deletePage", pageName: pageName}, function() {
-            $(".overlay").hide();
-            loadPages();
-        });
-
+        selectedPage = $(this).attr("id");
+        $("#delete-confirmation-modal").modal();
 
     });
 
     /**
+     * Confirm deleting a page
+     */
+    $(document).on('click', '#delete-confirmation-button', function() {
+        $.post("../pagehandler.php", {action: "deletePage", pageName: selectedPage}, function() {
+            loadPages();
+            $("#delete-confirmation-modal").modal('hide');
+        });
+    });
+
+
+    /**
      * Hide setting overlay menus when clicking outside of it
      */
-    $(document).mouseup(function(e)
-    {
+    $(document).mouseup(function(e) {
         var container = $(".settings-container");
 
         // if the target of the click isn't the container nor a descendant of the container
-        if (!container.is(e.target) && container.has(e.target).length === 0)
+        if (!container.is(e.target) && container.has(e.target).length === 0
+            && ($("#overlay-page-settings").css("display") != "none" || $("#overlay-page-settings-layout").css("display") != "none"
+            || $("#overlay-page-settings-name").css("display") != "none"))
         {
-            $(".overlay").hide();
+            hideOverlay()
             loadPages();
         }
     });

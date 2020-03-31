@@ -4,4 +4,12 @@ this is for css that's shared between multiple pages
 
 #navbar {
     background-color: #87cd9b;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
 }

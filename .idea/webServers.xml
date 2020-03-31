@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="4c529a2e-2533-441a-a9ae-38d2d3d05ed2" name="XAMPP Apache" url="http://afterpay.localhost">
+        <fileTransfer port="0" mountedRoot="C:\Users\Weezi\Desktop\Coding\afterpay-narrowcasting" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>
