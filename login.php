@@ -16,16 +16,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $passErr = "Pass is empty";
     }
 
-    else {
-        if ($_POST["password"] != "GroteZakTomaten12345") {
-            $passErr = "Wrong password";
-        }
+    else if ($_POST["password"] != "GroteZakTomaten12345") {
+        $passErr = "Wrong password";
+    }
 
-        else {
-            setcookie("admin", "ja", time() + (86400 * 365), "/"); // 86400 = 1 day
-            header('Location: edit.php');
-            die();
-        }
+    if ($userErr == "" && $passErr == "") {
+        setcookie("admin", "ja", time() + (86400 * (365*10)), "/"); // 86400 = 1 day, cookie is 10 years
+        header('Location: edit.php');
+        die();
     }
 }
 
