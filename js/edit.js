@@ -12,7 +12,8 @@ function hideOverlay() {
 }
 
 function stuffToDoLikeSavingBeforeThePageGetsReloaded() {
-    summernoteSaveAll();
+    // Try catch because because otherwise it tries to do the function even when the function doesn't exist
+    try { summernoteSaveAll(); } catch (error) {};
 }
 
 /**
