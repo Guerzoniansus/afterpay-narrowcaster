@@ -80,11 +80,14 @@ else {
 <!-- General settings -->
 <div id="overlay-page-settings" class="overlay">
     <div id="page-settings" class="settings-container">
-        <p align="center">General Settings</p>
-        <br>
+        <div>
+            <p align="center" style="display: inline;">General settings</p>
+            <button class="close-settings-button" type="button" onclick="hideOverlay()">×</button>
+        </div>
+        <hr>
         <div class="settings-row">
             <p>Time to wait</p>
-            <img id="page-setting-button-timeout" class="edit-icon" src="images/edit.png">
+            <input type="text" class="h-50 w-25" name="timeout" value="5">
         </div>
     </div>
 </div>
@@ -92,8 +95,11 @@ else {
 <!-- Layout settings -->
 <div id="overlay-page-settings-layout" class="overlay">
     <div id="page-settings-layout" class="settings-container">
-        <p id="layout-settings-title" align="center">Layout Settings</p>
-        <br>
+        <div>
+            <p id="layout-settings-title" align="center" style="display: inline;">Layout Settings</p>
+            <button class="close-settings-button" type="button" onclick="hideOverlay()">×</button>
+        </div>
+        <hr>
         <div class="settings-row">
             <p>Amount</p>
             <select class="setting-input h-50" name="amount">

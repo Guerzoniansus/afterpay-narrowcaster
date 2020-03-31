@@ -85,6 +85,19 @@
     z-index: 2;
 }
 
+.close-settings-button {
+    color: white;
+    background-color: transparent;
+    border-style: none;
+    float: right;
+    width: 40px;
+    align-self: flex-end;
+}
+
+.close-settings-button:hover {
+    background-color: #E52033;
+}
+
 .settings-container {
     position: absolute;
     top: 50%;

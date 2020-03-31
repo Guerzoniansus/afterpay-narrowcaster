@@ -7,6 +7,10 @@ function loadPages() {
     $(".pages-containers-container").load("pagehandler.php", {action: "load"});
 }
 
+function hideOverlay() {
+    $(".overlay").hide();
+}
+
 
 function addPage() {
 
