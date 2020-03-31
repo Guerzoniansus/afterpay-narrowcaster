@@ -1,1 +1,0 @@
-<ol><li style="text-align: center; "><span style="font-size: 100px;">﻿dit is de onderste tekst</span><br></li></ol>

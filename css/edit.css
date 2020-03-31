@@ -82,6 +82,7 @@
     height: 150px;
     cursor: pointer;
     padding: 10px;
+    border-radius: 25px;
 }
 
 .widget-img:hover {

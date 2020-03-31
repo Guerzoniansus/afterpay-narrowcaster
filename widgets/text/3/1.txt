@@ -1,1 +1,0 @@
-<p style="text-align: center; "><span style="font-size: 100px;">dit is de bovenste tekst﻿</span><br></p>
