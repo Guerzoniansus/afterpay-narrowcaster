@@ -106,12 +106,12 @@ if (!empty($_GET["pageName"])) {
         <div class="widget-img-div">
             <p class="widget-img-text">Weather</p>
             <img id="weather" class="widget-img" src="images/widget-icons/weather.png"
-                 title="Display weather">
+                 title="Display current weather, updated every minute">
         </div>
         <div class="widget-img-div">
-            <p class="widget-img-text">Weather Forecast</p>
+            <p class="widget-img-text">Forecast</p>
             <img id="weatherforecast" class="widget-img" src="images/widget-icons/weatherforecast.png"
-                 title="Display weather forecast">
+                 title="Display weather forecast of 3 hours from now">
         </div>
         <div class="widget-img-div">
             <p class="widget-img-text">Weather map</p>
