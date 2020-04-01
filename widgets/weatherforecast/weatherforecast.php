@@ -2,13 +2,13 @@
     #weatherforecast{
         font-size:150%;
     }
-    #icon{background-color:rgba(153,215,150,0.5); border-radius:100%;}
-    td{
+    #forecasticon{background-color:rgba(153,215,150,0.5); border-radius:100%;}
+    .forecasttd{
         border-radius:20px;
     }
-    tr{background-color: rgba(77,167,122,0.06s);}
-    tr:nth-child(even){background-color: rgba(153,215,150,0.06)}
-    #date{font-size:50%; background-color:transparent;}
+    .forecasttr{background-color: rgba(77,167,122,0.05);}
+    .forecasttr:nth-child(even){background-color: rgba(153,215,150,0.05)}
+    .forecasttr:last-child{font-size:50%; background-color:transparent;}
 </style>
 <?
 if(!function_exists("ConvertToBeaufort")){
@@ -156,31 +156,31 @@ $weathericon = $nextforecast["weather"][0]["icon"];
 ?>
 
 <table id="weatherforecast" width=90% height=90%>
-    <tr>
-        <td>The forecast in <?=$cityname?></td>
-        <td><img id="icon" src="http://openweathermap.org/img/wn/<?=$weathericon?>@2x.png" height=80 width=80> <?=$skies?></td>
+    <tr class="forecasttr">
+        <td class="forecasttd">The forecast in <?=$cityname?></td>
+        <td class="forecasttd"><img id="forecasticon" src="http://openweathermap.org/img/wn/<?=$weathericon?>@2x.png" height=80 width=80> <?=$skies?></td>
     </tr>
-    <tr>
-        <td>Temperature</td>
-        <td><?=$temp?>°C</td>
+    <tr class="forecasttr">
+        <td class="forecasttd">Temperature</td>
+        <td class="forecasttd"><?=$temp?>°C</td>
     </tr>
-    <tr>
-        <td>Wind chill Temperature</td>
-        <td><?=$feeltemp?>°C</td>
+    <tr class="forecasttr">
+        <td class="forecasttd">Wind chill Temperature</td>
+        <td class="forecasttd"><?=$feeltemp?>°C</td>
     </tr>
-    <tr>
-        <td>Air pressure</td>
-        <td><?=$pressure?> hPa</td>
+    <tr class="forecasttr">
+        <td class="forecasttd">Air pressure</td>
+        <td class="forecasttd"><?=$pressure?> hPa</td>
     </tr>
-    <tr>
-        <td>Humidity</td>
-        <td><?=$humidity?>%</td>
+    <tr class="forecasttr">
+        <td class="forecasttd">Humidity</td>
+        <td class="forecasttd"><?=$humidity?>%</td>
     </tr>
-    <tr>
-        <td>Wind</td>
-        <td><?=$windspeedbft?> Bft (<?=$windspeed?> m/s) <?=$cardinaldirection[1]?></td>
+    <tr class="forecasttr">
+        <td class="forecasttd">Wind</td>
+        <td class="forecasttd"><?=$windspeedbft?> Bft (<?=$windspeed?> m/s) <?=$cardinaldirection[1]?></td>
     </tr>
-    <tr id="date">
-        <td colspan=2 style="text-align:right;"><?=$forecastdate?></td>
+    <tr class="forecasttr" id="date">
+        <td class="forecasttd" colspan=2 style="text-align:right;"><?=$forecastdate?></td>
     </tr>
 </table>

@@ -2,12 +2,12 @@
     #weather{
         font-size:150%;
     }
-    #icon{background-color:rgba(153,215,150,0.5); border-radius:100%;}
-    td{
+    #weathericon{background-color:rgba(153,215,150,0.5); border-radius:100%;}
+    .weathertd{
         border-radius:20px;
     }
-    tr{background-color: rgba(77,167,122,0.05);}
-    tr:nth-child(even){background-color: rgba(153,215,150,0.05)}
+    .weathertr{background-color: rgba(77,167,122,0.05);}
+    .weathertr:nth-child(even){background-color: rgba(153,215,150,0.05)}
 </style>
 <?
 if(!function_exists("ConvertToBeaufort")){
@@ -140,28 +140,28 @@ $weathericon = $currentweather["weather"][0]["icon"];
 ?>
 
 <table id="weather" width=90% height=90%>
-    <tr>
-        <td>The weather in <?=$cityname?></td>
-        <td><img id="icon" src="http://openweathermap.org/img/wn/<?=$weathericon?>@2x.png" height=80 width=80> <?=$skies?></td>
+    <tr class="weathertr">
+        <td class="weathertd">The weather in <?=$cityname?></td>
+        <td class="weathertd"><img id="weathericon" src="http://openweathermap.org/img/wn/<?=$weathericon?>@2x.png" height=80 width=80> <?=$skies?></td>
     </tr>
-    <tr>
-        <td>Temperature</td>
-        <td><?=$temp?>°C</td>
+    <tr class="weathertr">
+        <td class="weathertd">Temperature</td>
+        <td class="weathertd"><?=$temp?>°C</td>
     </tr>
-    <tr>
-        <td>Wind chill Temperature</td>
-        <td><?=$feeltemp?>°C</td>
+    <tr class="weathertr">
+        <td class="weathertd">Wind chill Temperature</td>
+        <td class="weathertd"><?=$feeltemp?>°C</td>
     </tr>
-    <tr>
-        <td>Air pressure</td>
-        <td><?=$pressure?> hPa</td>
+    <tr class="weathertr">
+        <td class="weathertd">Air pressure</td>
+        <td class="weathertd"><?=$pressure?> hPa</td>
     </tr>
-    <tr>
-        <td>Humidity</td>
-        <td><?=$humidity?>%</td>
+    <tr class="weathertr">
+        <td class="weathertd">Humidity</td>
+        <td class="weathertd"><?=$humidity?>%</td>
     </tr>
-    <tr>
-        <td>Wind</td>
-        <td><?=$windspeedbft?> Bft (<?=$windspeed?> m/s) <?=$cardinaldirection[1]?></td>
+    <tr class="weathertr">
+        <td class="weathertd">Wind</td>
+        <td class="weathertd"><?=$windspeedbft?> Bft (<?=$windspeed?> m/s) <?=$cardinaldirection[1]?></td>
     </tr>
 </table>
