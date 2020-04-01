@@ -1,7 +1,14 @@
 <style>
     #weatherforecast{
-        /* border: solid black 2px; */
-    };
+        font-size:150%;
+    }
+    #icon{background-color:rgba(153,215,150,0.5); border-radius:100%;}
+    td{
+        border-radius:20px;
+    }
+    tr{background-color: rgba(77,167,122,0.06s);}
+    tr:nth-child(even){background-color: rgba(153,215,150,0.06)}
+    #date{font-size:50%; background-color:transparent;}
 </style>
 <?
 if(!function_exists("ConvertToBeaufort")){
@@ -130,19 +137,39 @@ $feeltemp = round($nextforecast["main"]["feels_like"],1);
 $pressure = $nextforecast["main"]["pressure"];
 $humidity = $nextforecast["main"]["humidity"];
 $windspeed = round($nextforecast["wind"]["speed"],1);
-$windspeedbf = ConvertToBeaufort($nextforecast["wind"]["speed"]);
+$windspeedbft = ConvertToBeaufort($nextforecast["wind"]["speed"]);
 $cardinaldirection = ConvertCardinalDirection($nextforecast["wind"]["deg"]);
 $skies = $nextforecast["weather"][0]["main"];
 $forecastdate = $nextforecast["dt_txt"];
 $weathericon = $nextforecast["weather"][0]["icon"];
 ?>
-<div>
-    <h1>The forecast in <?=$cityname?></h1>
-    <h3><?=$skies?><img src="http://openweathermap.org/img/wn/<?=$weathericon?>@2x.png" height=50 width=50></h3>
-    <h3>Temperature <?=$temp?>°C</h2>
-    <h3>Wind chill Temperature <?=$feeltemp?>°C</h2>
-    <h3>The air pressure <?=$pressure?> hPa</h2>
-    <h3>The humidity <?=$humidity?>%</h2>
-    <h2>Wind <?=$windspeedbf?> Bft (<?=$windspeed?> m/s) <?=$cardinaldirection[0]?></h2>
-    <h4><?=$forecastdate?></h4>
-</div>
+
+<table id="weatherforecast" width=1000 height=400>
+    <tr>
+        <td>The forecast in <?=$cityname?></td>
+        <td><img id="icon" src="http://openweathermap.org/img/wn/<?=$weathericon?>@2x.png" height=80 width=80> <?=$skies?></td>
+    </tr>
+    <tr>
+        <td>Temperature</td>
+        <td><?=$temp?>°C</td>
+    </tr>
+    <tr>
+        <td>Wind chill Temperature</td>
+        <td><?=$feeltemp?>°C</td>
+    </tr>
+    <tr>
+        <td>Air pressure</td>
+        <td><?=$pressure?> hPa</td>
+    </tr>
+    <tr>
+        <td>Humidity</td>
+        <td><?=$humidity?>%</td>
+    </tr>
+    <tr>
+        <td>Wind</td>
+        <td><?=$windspeedbft?> Bft (<?=$windspeed?> m/s) <?=$cardinaldirection[1]?></td>
+    </tr>
+    <tr id="date">
+        <td><?=$forecastdate?></td>
+    </tr>
+</table>

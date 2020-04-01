@@ -139,30 +139,29 @@ $skies = $currentweather["weather"][0]["main"];
 $weathericon = $currentweather["weather"][0]["icon"];
 ?>
 
-
-    <table id="weather" width=1000 height=400>
-        <tr>
-            <td>The weather in <?=$cityname?></td>
-            <td><img id="icon" src="http://openweathermap.org/img/wn/<?=$weathericon?>@2x.png" height=80 width=80> <?=$skies?></td>
-        </tr>
-        <tr>
-            <td>Temperature</td>
-            <td><?=$temp?>°C</td>
-        </tr>
-        <tr>
-            <td>Wind chill Temperature</td>
-            <td><?=$feeltemp?>°C</td>
-        </tr>
-        <tr>
-            <td>Air pressure</td>
-            <td><?=$pressure?> hPa</td>
-        </tr>
-        <tr>
-            <td>Humidity</td>
-            <td><?=$humidity?>%</td>
-        </tr>
-        <tr>
-            <td>Wind</td>
-            <td><?=$windspeedbft?> Bft (<?=$windspeed?> m/s) <?=$cardinaldirection[1]?></td>
-        </tr>
-    </table>
+<table id="weather" width=1000 height=400>
+    <tr>
+        <td>The weather in <?=$cityname?></td>
+        <td><img id="icon" src="http://openweathermap.org/img/wn/<?=$weathericon?>@2x.png" height=80 width=80> <?=$skies?></td>
+    </tr>
+    <tr>
+        <td>Temperature</td>
+        <td><?=$temp?>°C</td>
+    </tr>
+    <tr>
+        <td>Wind chill Temperature</td>
+        <td><?=$feeltemp?>°C</td>
+    </tr>
+    <tr>
+        <td>Air pressure</td>
+        <td><?=$pressure?> hPa</td>
+    </tr>
+    <tr>
+        <td>Humidity</td>
+        <td><?=$humidity?>%</td>
+    </tr>
+    <tr>
+        <td>Wind</td>
+        <td><?=$windspeedbft?> Bft (<?=$windspeed?> m/s) <?=$cardinaldirection[1]?></td>
+    </tr>
+</table>
