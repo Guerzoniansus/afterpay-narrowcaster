@@ -109,6 +109,16 @@ if (!empty($_GET["pageName"])) {
                  title="Display weather">
         </div>
         <div class="widget-img-div">
+            <p class="widget-img-text">Weather Forecast</p>
+            <img id="weatherforecast" class="widget-img" src="images/widget-icons/weatherforecast.png"
+                 title="Display weather forecast">
+        </div>
+        <div class="widget-img-div">
+            <p class="widget-img-text">Weather map</p>
+            <img id="weathermap" class="widget-img" src="images/widget-icons/weathermap.png"
+                 title="Display weather map">
+        </div>
+        <div class="widget-img-div">
             <p class="widget-img-text">Delete</p>
             <img id="empty" class="widget-img" src="images/widget-icons/delete.png"
                  title="Delete this widget">

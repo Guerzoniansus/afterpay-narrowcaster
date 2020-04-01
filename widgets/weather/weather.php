@@ -1,39 +1,24 @@
-<?
-// Method: POST, PUT, GET etc
-// Data: array("param" => "value") ==> index.php?param=value
-
-function CallAPI($method, $url, $data = false)
-{
-    $curl = curl_init();
-
-    switch ($method)
-    {
-        case "POST":
-            curl_setopt($curl, CURLOPT_POST, 1);
-
-            if ($data)
-                curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-            break;
-        case "PUT":
-            curl_setopt($curl, CURLOPT_PUT, 1);
-            break;
-        default:
-            if ($data)
-                $url = sprintf("%s?%s", $url, http_build_query($data));
+<style>
+    #weatherdisplay{
+        font-size:225%;
     }
+    #weathericon{background-color:rgba(153,215,150,0.5); border-radius:100%;}
+    .weathertd{
+        border-radius:20px;
+    }
+    .weathertr{background-color: rgba(77,167,122,0.05);}
+    .weathertr:nth-child(even){background-color: rgba(153,215,150,0.05)}
+</style>
+<table id="weatherdisplay" width=90% height=90%>
+    
+</table>
 
-    // Optional Authentication:
-    curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-    curl_setopt($curl, CURLOPT_USERPWD, "username:password");
-
-    curl_setopt($curl, CURLOPT_URL, $url);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-
-    $result = curl_exec($curl);
-
-    curl_close($curl);
-
-    return $result;
-}
-echo CallAPI("POST","api.openweathermap.org/data/2.5/weather?id=2754669&appid=4bbb93bb09fb3e81168d23a070f612b5");
-?>
+<script>
+    $(document).ready(function(){
+        loadWeather();
+        setInterval(loadWeather, 60000);
+    });
+    function loadWeather(){
+        $('#weatherdisplay').load("widgets/weather/weatherload.php");
+    }
+</script>
