@@ -125,7 +125,18 @@ if(!function_exists("CallAPI")){
 
 $forecastcode = CallAPI("POST","api.openweathermap.org/data/2.5/forecast?id=2754669&appid=4bbb93bb09fb3e81168d23a070f612b5&units=metric");
 $forecast = json_decode($forecastcode, true);
-$nextforecast = array_slice($forecast["list"],0,1);
+
+$forecasttime = $forecast["list"][0]["dt"]-7200;
+$time = time();
+if(($forecasttime-$time)<=-7200){
+    $nextforecast = array_slice($forecast["list"],2,1);
+}
+else if(($forecasttime-$time)<=3600){
+    $nextforecast = array_slice($forecast["list"],1,1);
+}
+else{
+    $nextforecast = array_slice($forecast["list"],0,1);  
+}
 $nextforecast = $nextforecast[0];
 
 // echo print_r($forecast);
@@ -144,7 +155,7 @@ $forecastdate = $nextforecast["dt_txt"];
 $weathericon = $nextforecast["weather"][0]["icon"];
 ?>
 
-<table id="weatherforecast" width=1000 height=400>
+<table id="weatherforecast" width=90% height=90%>
     <tr>
         <td>The forecast in <?=$cityname?></td>
         <td><img id="icon" src="http://openweathermap.org/img/wn/<?=$weathericon?>@2x.png" height=80 width=80> <?=$skies?></td>
@@ -170,6 +181,6 @@ $weathericon = $nextforecast["weather"][0]["icon"];
         <td><?=$windspeedbft?> Bft (<?=$windspeed?> m/s) <?=$cardinaldirection[1]?></td>
     </tr>
     <tr id="date">
-        <td><?=$forecastdate?></td>
+        <td colspan=2 style="text-align:right;"><?=$forecastdate?></td>
     </tr>
 </table>

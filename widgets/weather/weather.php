@@ -139,7 +139,7 @@ $skies = $currentweather["weather"][0]["main"];
 $weathericon = $currentweather["weather"][0]["icon"];
 ?>
 
-<table id="weather" width=1000 height=400>
+<table id="weather" width=90% height=90%>
     <tr>
         <td>The weather in <?=$cityname?></td>
         <td><img id="icon" src="http://openweathermap.org/img/wn/<?=$weathericon?>@2x.png" height=80 width=80> <?=$skies?></td>
