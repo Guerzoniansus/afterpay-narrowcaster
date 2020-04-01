@@ -107,7 +107,7 @@ if (!empty($_GET["pageName"])) {
                  title="Display weather">
         </div>
         <div class="widget-img-div">
-            <p class="widget-img-text">Weather Forecast</p>
+            <p class="widget-img-text">Forecast</p>
             <img id="weatherforecast" class="widget-img" src="images/widget-icons/weatherforecast.png"
                  title="Display weather forecast">
         </div>
