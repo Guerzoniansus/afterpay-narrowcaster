@@ -17,7 +17,6 @@
         .from(document.querySelectorAll('script'))
         .map(scr => scr.src);
     if (!summerScripts.includes('widgets/text/text-edit.js')) {
-        console.log("loading");
         $.getScript('widgets/text/text-edit.js');
     }
 </script>

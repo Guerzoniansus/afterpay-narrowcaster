@@ -8,11 +8,6 @@ $(document).ready(function() {
         summernoteLoadText();
     }, 100);
 
-    // Save text on page load or refresh (page refreshes when widgets get loaded)
-    $(window).on("beforeunload", function() {
-        //summernoteSaveAll();
-    })
-
     $(document).on("click", ".summernote-edit-button", function() {
         widgetIndex = $(this).parent().parent().find('input[name=widget-index]').val();
         summernoteEdit(widgetIndex);
@@ -121,10 +116,12 @@ function summernoteLoadText() {
     $.get('widgets/text/' + pageName + "/" + (3) + ".txt", function(data) {
         $(".widget-container[id=3]").find(".summernote").summernote('code', data);
         $(".widget-container[id=3]").find(".summernote").summernote('destroy');
+        console.log(3 + data);
     });
 
     $.get('widgets/text/' + pageName + "/" + (4) + ".txt", function(data) {
         $(".widget-container[id=4]").find(".summernote").summernote('code', data);
+        console.log(4 + data);
         $(".widget-container[id=4]").find(".summernote").summernote('destroy');
     });
 

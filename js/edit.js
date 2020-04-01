@@ -11,9 +11,24 @@ function hideOverlay() {
     $(".overlay").hide();
 }
 
-function stuffToDoLikeSavingBeforeThePageGetsReloaded() {
+function goToDisplayPage() {
+    event.preventDefault();
+    stuffToDoLikeSavingBeforeThePageGetsReloaded(function() {
+        window.open('display.php', '_blank');
+    });
+}
+
+/**
+ * Callback is an (optional) function of stuff to do after saving
+ * @param callback
+ */
+function stuffToDoLikeSavingBeforeThePageGetsReloaded(callback) {
     // Try catch because because otherwise it tries to do the function even when the function doesn't exist
     try { summernoteSaveAll(); } catch (error) {};
+
+    if (typeof callback == "function") {
+        callback();
+    }
 }
 
 /**
@@ -29,14 +44,16 @@ function addWidget(widgetName) {
         widgetName, widgetName,
         widgetIndex: selectedContainer
     }, function() {
-        stuffToDoLikeSavingBeforeThePageGetsReloaded();
-
-        location.reload();
+        stuffToDoLikeSavingBeforeThePageGetsReloaded(function() {
+            location.reload();
+        });
     });
     //TODO: Error checking? Maybe later
 }
 
 $(document).ready(function() {
+
+    hideOverlay();
 
     // Page name gets inserted into hidden input through PHP and GET parameter in the url
     // If page exists:
@@ -45,7 +62,13 @@ $(document).ready(function() {
         loadWidgets();
     }
 
-    hideOverlay();
+
+    /**
+     *  Save stuff if (accidentally) closes the window or goes back to pages
+     */
+    $(window).on("beforeunload", function() {
+        stuffToDoLikeSavingBeforeThePageGetsReloaded();
+    })
 
     /**
      * Open widget select

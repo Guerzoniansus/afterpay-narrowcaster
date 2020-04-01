@@ -67,7 +67,9 @@ if (!empty($_GET["pageName"])) {
         </div>
         <div class="col-2">
             <div class="float-right">
-                <a href="display.php" target="_blank"><img id="display-redirect-button" title="Open display page in a new tab" class="img" src="images/redirect.svg" height="40px"></a>
+                <a href="display.php" target="_blank" onclick="goToDisplayPage()">
+                    <img id="display-redirect-button" title="Open display page in a new tab" class="img" src="images/redirect.svg" height="40px">
+                </a>
             </div>
         </div>
     </div>
