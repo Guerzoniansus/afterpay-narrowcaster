@@ -92,7 +92,7 @@ if (!empty($_GET["pageName"])) {
 
 <!-- Images of widgets -->
 <div id="overlay-widget-select" class="overlay">
-    <div id="widget-select" style="display: flex; justify-content: space-between; flex-wrap: wrap; align-content: start;">
+    <div id="widget-select" style="display: flex; justify-content: space-between; flex-wrap: wrap; align-content: start;width:50%;height:auto;">
         <div class="widget-img-div">
             <p class="widget-img-text">Orders</p>
             <img id="orders" class="widget-img" src="images/widget-icons/orders.png"
@@ -119,15 +119,21 @@ if (!empty($_GET["pageName"])) {
                  title="Display weather map">
         </div>
         <div class="widget-img-div">
+            <p class="widget-img-text">YouTube Video</p>
+            <img id="youtube-video" class="widget-img" src="images/widget-icons/youtube-video.png"
+                 title="Display YouTube Video">
+        </div>
+        <div class="widget-img-div">
+            <p class="widget-img-text">Playlist</p>
+            <img id="youtube-playlist" class="widget-img" src="images/widget-icons/youtube-playlist.png"
+                 title="Display YouTube Playlist">
+        </div>
+        <div class="widget-img-div">
             <p class="widget-img-text">Delete</p>
             <img id="empty" class="widget-img" src="images/widget-icons/delete.png"
                  title="Delete this widget">
         </div>
     </div>
 </div>
-
-
-
-
 </body>
 </html>
