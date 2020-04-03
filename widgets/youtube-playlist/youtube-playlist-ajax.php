@@ -6,4 +6,5 @@ $filePath = getcwd() . "\piles\playlist.txt";
 $fp = fopen($filePath, "w");
 fwrite($fp,$text);
 fclose($fp);
+echo $text;
 ?>

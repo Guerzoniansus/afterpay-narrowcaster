@@ -1,6 +1,17 @@
 <style>
     .youtubevideoform{
-        font-size:300%;
+        font-size:175%;
+        padding:10px;
+    }
+    .ytvideo{
+        height:100%;
+        width:100%;
+        padding:10px;
+        text-align:center;
+    }
+    .youtubevideoplayer{
+        height:100%;
+        width:80%;
     }
 </style>
 <?php
@@ -9,8 +20,8 @@ $ytvfp = fopen($ytvfilePath, "r");
 $videoid = fread($ytvfp, filesize($ytvfilePath));
 fclose($ytvfp);
 ?>
-
-<h1>Insert a YouTube Video ID here</h1>
+<div class="ytvideo"><iframe class="youtubevideoplayer" src="https://www.youtube.com/embed/<?=$videoid?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+<h3>Insert a YouTube Video ID here</h3>
 <form method="post" class="youtubevideoform">
     <input type="text" name="video" class="youtubevideoinput" value=<?=$videoid?>>
     <button type="submit">Save</button>
@@ -22,7 +33,7 @@ fclose($ytvfp);
 
         $.post('/widgets/youtube-video/youtube-video-ajax.php', {youtubevideoLink: youtubevideoLink}, function(data) {
         // stuff to do after saving, like saying "link saved!"
-        console.log(youtubevideoLink);
+        $(".ytvideo").html('<iframe class="youtubevideoplayer" src="https://www.youtube.com/embed/'+data+'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
         });
     });
 </script>
