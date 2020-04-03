@@ -92,7 +92,7 @@ if (!empty($_GET["pageName"])) {
 
 <!-- Images of widgets -->
 <div id="overlay-widget-select" class="overlay">
-    <div id="widget-select" style="display: flex; justify-content: space-between; flex-wrap: wrap; align-content: start;width:50%;height:auto;">
+    <div id="widget-select" style="display: flex; justify-content: space-between; flex-wrap: wrap; align-content: start;">
         <div class="widget-img-div">
             <p class="widget-img-text">Orders</p>
             <img id="orders" class="widget-img" src="images/widget-icons/orders.png"
