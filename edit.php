@@ -134,6 +134,11 @@ if (!empty($_GET["pageName"])) {
                  title='Display a random "Would you rather?" question to start a conversation about'>
         </div>
         <div class="widget-img-div">
+            <p class="widget-img-text">Spotify</p>
+            <img id="spotify" class="widget-img" src="images/widget-icons/spotify.png"
+                 title='Display a Spotify player'>
+        </div>
+        <div class="widget-img-div">
             <p class="widget-img-text">Delete</p>
             <img id="empty" class="widget-img" src="images/widget-icons/delete.png"
                  title="Delete this widget">
