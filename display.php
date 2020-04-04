@@ -2,6 +2,9 @@
 require 'contenthandler.php';
 
 $pages = getAllPages();
+
+// getTimeout is seconds, Bootstrap carousel (slideshow) uses milliseconds
+$timeout = getTimeout(false) * 1000;
 ?>
 
 <!doctype html>
@@ -65,7 +68,7 @@ $pages = getAllPages();
 
         <!-- Carousel is a bootstrap thing that creates a slideshow -->
         <div id="carouselExampleIndicators" class="carousel slide mx-auto my-auto w-100 h-100" data-ride="carousel"
-        data-interval="5000" data-pause="false">
+        data-interval="<?= $timeout ?>" data-pause="false">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>

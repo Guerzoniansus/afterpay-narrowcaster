@@ -5,6 +5,11 @@ var selectedPage = "";
  */
 function loadPages() {
     $(".pages-containers-container").load("pagehandler.php", {action: "load"});
+
+    // Set timeout variable
+    $.post("generalsettings.php", {action: "getTimeout"}, function(data) {
+        $("#timeout-input").val(data);
+    });
 }
 
 function hideOverlay() {
@@ -66,6 +71,7 @@ $(document).ready(function() {
             addPage();
         }
     });
+
 
     /**
      * Removes the add page error message when typing something else
@@ -198,6 +204,30 @@ $(document).ready(function() {
                 loadPages();
         });
 
+    });
+
+    /**
+     * Pressing enter to submit time to wait
+     */
+    $(document).on('keyup', '#timeout-input', function(event) {
+        if (event.key == "Enter") {
+            hideOverlay();
+        }
+
+        else {
+            // This deletes non-numbers or empty inputs to make sure input is integer
+            var text = $(this).val();
+            text = text.replace(/[^0-9]/g,'');
+            if (text == "0") text = 1;
+
+            $(this).val(text);
+
+            $.post("generalsettings.php", {
+                action: "updateSettings",
+                option: "timeout",
+                newValue: text
+            });
+        }
     });
 
 });

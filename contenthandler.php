@@ -1,5 +1,6 @@
 <?php
 require ('pagehandler.php');
+require ('generalsettings.php');
 
 if (!$_SERVER["REQUEST_METHOD"] == "POST") {
     //die(); DONT REMOVE THIS COMMENT OR THINGS MIGHT BREAK

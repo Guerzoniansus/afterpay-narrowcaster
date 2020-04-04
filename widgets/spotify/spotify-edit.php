@@ -53,7 +53,7 @@
     <input type="text" name="playlist" class="spotifyinput" value=<?=$spotifyid?>>
     <button type="submit" class="spotifybtn">Save</button>
 </form>
-<a href="/widgets/spotify/spotify-help.php">help</a>
+<a href="/widgets/spotify/spotify-help.php" target="_blank">Click here for help with getting a Spotify link</a>
 <script>
     $(".spotifyform").submit(function(e) {
         e.preventDefault();

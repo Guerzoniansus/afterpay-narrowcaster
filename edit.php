@@ -143,6 +143,12 @@ if (!empty($_GET["pageName"])) {
             <img id="empty" class="widget-img" src="images/widget-icons/delete.png"
                  title="Delete this widget">
         </div>
+        <div class="widget-img-div">
+            <p class="widget-img-text"></p>
+        </div>
+        <div class="widget-img-div">
+            <p class="widget-img-text"></p>
+        </div>
     </div>
 </div>
 </body>

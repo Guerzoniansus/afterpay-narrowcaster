@@ -98,7 +98,7 @@ else {
         <hr>
         <div class="settings-row">
             <p>Time to wait (seconds)</p>
-            <input type="text" class="form-control h-50 w-25" name="timeout" value="5">
+            <input id="timeout-input" type="text" class="form-control h-50 w-25" name="timeout">
         </div>
     </div>
 </div>
