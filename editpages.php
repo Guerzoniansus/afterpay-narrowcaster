@@ -68,6 +68,7 @@ else {
 
         <!-- Add page button on the right -->
         <div class="col-2 my-auto mx-auto text-center" >
+            <h3>Click to add a page</h3>
             <img id="add-page-button" title="Add page" class="plus-icon" src="images/plus-solid.svg">
         </div>
     </div>
