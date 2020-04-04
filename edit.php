@@ -129,6 +129,11 @@ if (!empty($_GET["pageName"])) {
                  title="Display YouTube Playlist">
         </div>
         <div class="widget-img-div">
+            <p class="widget-img-text">Rather</p>
+            <img id="wouldyourather" class="widget-img" src="images/widget-icons/wouldyourather.png"
+                 title='Display a random "Would you rather?" question to start a conversation about'>
+        </div>
+        <div class="widget-img-div">
             <p class="widget-img-text">Delete</p>
             <img id="empty" class="widget-img" src="images/widget-icons/delete.png"
                  title="Delete this widget">
