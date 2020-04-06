@@ -16,7 +16,7 @@ function addHead($title) {
 
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
 
-    <!-- Unedited images from Font Awesome were used. License at https://fontawesome.com/license -->
+    <!-- Edited and Unedited images from Font Awesome were used. License at https://fontawesome.com/license -->
     <?php
 }
 
