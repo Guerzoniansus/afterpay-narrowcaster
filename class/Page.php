@@ -1,27 +1,27 @@
 <?php
 
 class Page {
-    public string $defaultTwoLayout = "vertical";
-    public string $defaultThreeLayout = "1-2";
+    public $defaultTwoLayout = "vertical";
+    public $defaultThreeLayout = "1-2";
 
-    public string $pageName;
+    public $pageName;
 
     // Whether this page should be included in the slideshow or not
     // KEEP IN MIND THAT THIS IS A STRING "true" OR "false"
     // FOR SOME STUPID REASON BOOLS WOULDNT WORK PROPERLY WITH SAVING
-    public string $visible;
+    public $visible;
 
     // Amount of widgets
-    public int $amount;
+    public $amount;
 
     // Array with widget names (as strings)
-    public Array $widgets;
+    public $widgets;
 
     // 2-layout: "horizontal" (default) or "vertical"
-    public string $twoLayout;
+    public $twoLayout;
 
     // 3-layout: "2-1" (default) or "1-2"
-    public string $threeLayout;
+    public $threeLayout;
 
     /**
      * @return string The layout used for this page (which also includes the amount)
