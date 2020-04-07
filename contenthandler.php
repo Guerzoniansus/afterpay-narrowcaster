@@ -46,7 +46,7 @@ function insertWidgetContainer(array $widgets, int $widgetIndex, int $height) {
 
     else {
         ?>
-        <div id="<?= $widgetIndex ?>" class="widget-container w-100 border page-<?= $_POST["pageName"] ?>" style="height: <?= $height ?>px;">
+        <div id="<?= $widgetIndex ?>" class="widget-container w-100 <?= $edit == true ? 'border' : '' ?> page-<?= $_POST["pageName"] ?>" style="height: <?= $height ?>px;">
             <? if ($edit == true): ?>
                 <img id="<?= $widgetIndex ?>" class="plus-icon-small add-widget-plus-button" src="images/plus-solid.svg">
             <? endif; ?>
