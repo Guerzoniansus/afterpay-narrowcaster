@@ -126,14 +126,12 @@ if (!empty($_GET["pageName"])) {
                  title='Display a Spotify player'>
         </div>
         <div class="widget-img-div">
-            <p class="widget-img-text">Embed</p>
-            <img id="embed" class="widget-img" src="images/widget-icons/embed.png"
-                 title="Embed a website of your choice">
-        </div>
-        <div class="widget-img-div">
             <p class="widget-img-text">Delete</p>
             <img id="empty" class="widget-img" src="images/widget-icons/delete.png"
                  title="Delete this widget">
+        </div>
+        <div class="widget-img-div">
+            <p class="widget-img-text"></p>
         </div>
         <div class="widget-img-div">
             <p class="widget-img-text"></p>
