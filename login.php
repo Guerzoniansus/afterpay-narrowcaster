@@ -49,6 +49,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             font-weight: bold;
             align-self: center;
         }
+
+        #submit-button:hover {
+            background-color: rgba(135, 205, 155, 0.8);
+        }
     </style>
 </head>
 <body>

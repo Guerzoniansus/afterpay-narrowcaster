@@ -2,9 +2,23 @@
 
 ?>
 
+<style>
+    .summernote-edit-button, .summernote-save-button {
+        border: 1px solid transparent;
+        border-radius: 5px;
+        background-color: rgba(135, 205, 155, 0.5);
+        color: black;
+        font-weight: bold;
+    }
+
+    .summernote-edit-button:hover, .summernote-save-button:hover {
+        background-color: rgba(135, 205, 155, 0.8);
+    }
+</style>
+
 <div class="summernote-buttons" style="display: none">
-    <button class="summernote-edit-button btn btn-primary" type="button">Edit Text</button>
-    <button class="summernote-save-button btn btn-primary" type="button">Save</button>
+    <button class="summernote-edit-button btn" type="button">Edit Text</button>
+    <button class="summernote-save-button btn" type="button">Save</button>
     <p class="summernote-status-message d-inline"></p>
 </div>
 
