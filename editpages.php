@@ -1,19 +1,7 @@
 <?php
 require 'helpers.php';
 
-// ===== CHECK IF USER HAS A COOKIE THAT SAYS THEY SUCCESSFULLY LOGGED IN, OTHERWISE REDIRECT TO LOGIN PAGE
-if (!isset($_COOKIE["admin"])) {
-    header('Location: login.php');
-    die();
-}
-
-else {
-    if ($_COOKIE["admin"] != "ja") {
-        header('Location: login.php');
-        die();
-    }
-}
-// ===== CHECK IF USER HAS A COOKIE THAT SAYS THEY SUCCESSFULLY LOGGED IN, OTHERWISE REDIRECT TO LOGIN PAGE
+denyAccessIfNotLoggedIn();
 
 
 ?>

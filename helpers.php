@@ -20,4 +20,19 @@ function addHead($title) {
     <?php
 }
 
+// CHECK IF USER HAS A COOKIE THAT SAYS THEY SUCCESSFULLY LOGGED IN, OTHERWISE REDIRECT TO LOGIN PAGE
+function denyAccessIfNotLoggedIn() {
+    if (!isset($_COOKIE["admin"])) {
+        header('Location: login.php');
+        die();
+    }
+
+    else {
+        if ($_COOKIE["admin"] != "ja") {
+            header('Location: login.php');
+            die();
+        }
+    }
+}
+
 ?>

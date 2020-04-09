@@ -1,8 +1,10 @@
 <?php
 require 'helpers.php';
 require 'DB.php';
-$db = new DB();
 
+denyAccessIfNotLoggedIn();
+
+$db = new DB();
 $employees = $db->getAllEmployees();
 
 ?>
