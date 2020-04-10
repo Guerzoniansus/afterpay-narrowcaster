@@ -111,7 +111,17 @@ if (!empty($_GET["pageName"])) {
         <div class="widget-img-div">
             <p class="widget-img-text">Spotify</p>
             <img id="spotify" class="widget-img" src="images/widget-icons/spotify.png"
-                 title='Display a Spotify player'>
+                 title='Display a Spotify player'>       
+        </div>
+        <div class="widget-img-div">
+            <p class="widget-img-text">Birthday</p>
+            <img id="Birthday" class="widget-img" src="images/widget-icons/text.png"
+                 title="Display birthdays of today">
+        </div>
+        <div class="widget-img-div">
+            <p class="widget-img-text">News</p>
+            <img id="Nieuws" class="widget-img" src="images/widget-icons/text.png"
+                 title="Display news">
         </div>
         <div class="widget-img-div">
             <p class="widget-img-text">Delete</p>
