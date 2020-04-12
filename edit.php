@@ -79,6 +79,11 @@ if (!empty($_GET["pageName"])) {
                  title="Display formatted text and images">
         </div>
         <div class="widget-img-div">
+            <p class="widget-img-text">News</p>
+            <img id="Nieuws" class="widget-img" src="images/widget-icons/news.png"
+                 title="Display news">
+        </div>
+        <div class="widget-img-div">
             <p class="widget-img-text">Weather</p>
             <img id="weather" class="widget-img" src="images/widget-icons/weather.png"
                  title="Display current weather, updated every minute">
@@ -115,13 +120,8 @@ if (!empty($_GET["pageName"])) {
         </div>
         <div class="widget-img-div">
             <p class="widget-img-text">Birthday</p>
-            <img id="Birthday" class="widget-img" src="images/widget-icons/text.png"
+            <img id="Birthday" class="widget-img" src="images/widget-icons/birthday.png"
                  title="Display birthdays of today">
-        </div>
-        <div class="widget-img-div">
-            <p class="widget-img-text">News</p>
-            <img id="Nieuws" class="widget-img" src="images/widget-icons/text.png"
-                 title="Display news">
         </div>
         <div class="widget-img-div">
             <p class="widget-img-text">Delete</p>
