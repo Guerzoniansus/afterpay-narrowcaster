@@ -118,11 +118,11 @@ if (!empty($_GET["pageName"])) {
             <img id="spotify" class="widget-img" src="images/widget-icons/spotify.png"
                  title='Display a Spotify player'>       
         </div>
-        <div class="widget-img-div">
+        <!--div class="widget-img-div">
             <p class="widget-img-text">Birthday</p>
             <img id="Birthday" class="widget-img" src="images/widget-icons/birthday.png"
                  title="Display birthdays of today">
-        </div>
+        </div-->
         <div class="widget-img-div">
             <p class="widget-img-text">Delete</p>
             <img id="empty" class="widget-img" src="images/widget-icons/delete.png"
