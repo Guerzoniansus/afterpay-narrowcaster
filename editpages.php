@@ -21,15 +21,15 @@ denyAccessIfNotLoggedIn();
 
     <!-- Top bar -->
     <div class="row" id="navbar">
-        <div class="col-1">
+        <div class="col-4">
             <img id="general-settings-button" title="Open general settings" class="img" src="images/cog-solid.svg" height="40px">
         </div>
-        <div class="col-10">
+        <div class="col-4">
             <h1 align="center"><b>Pages</b></h1>
         </div>
-        <div class="col-1">
+        <div class="col-4">
             <div class="float-right">
-                <a href="display.php" target="_blank"><img id="display-redirect-button" title="Open display page in a new tab" class="img" src="images/redirect.svg" height="40px"></a>
+                <a href="display.php" style="text-decoration: none; color: black;" target="blank" title="Open slideshow in a new tab. Tip: Press F11 for fullscreen."><h1 id="display-redirect-button">Go to slideshow ►</h1></a>
             </div>
         </div>
     </div>

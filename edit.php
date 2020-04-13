@@ -43,7 +43,7 @@ if (!empty($_GET["pageName"])) {
         <div class="col-4">
             <div class="float-right">
                 <a href="display.php" target="_blank" onclick="goToDisplayPage()">
-                    <a href="editpages.php" style="text-decoration: none;" target="_blank" title="Open slideshow in a new tab"><h1 id="page-button">Go to slideshow ►</h1></a>
+                    <a href="display.php" style="text-decoration: none;" target="_blank" title="Open slideshow in a new tab. Tip: Press F11 for fullscreen."><h1 id="page-button">Go to slideshow ►</h1></a>
                 </a>
             </div>
         </div>

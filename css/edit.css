@@ -35,7 +35,7 @@
 }
 
 #display-redirect-button:hover {
-    transform: scale(1.1);
+    transform: scale(1.01);
 }
 
 #page-button {
@@ -43,7 +43,7 @@
 }
 
 #page-button:hover {
-    transform: scale(1.1);
+    transform: scale(1.01);
 }
 
 
