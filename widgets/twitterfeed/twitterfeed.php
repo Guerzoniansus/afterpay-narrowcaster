@@ -6,7 +6,6 @@ data-theme="light"
 align="center"
 data-chrome="noscrollbar"
 data-chrome="noborders"
-data-chrome="nofooter"
 href="https://twitter.com/AfterPay?ref_src=twsrc%5Etfw">Tweets by AfterPay</a> 
 <script 
 async src="https://platform.twitter.com/widgets.js" 
