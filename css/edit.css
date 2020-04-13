@@ -34,12 +34,16 @@
     transform: scale(1.1);
 }
 
+#display-redirect-button:hover {
+    transform: scale(1.1);
+}
+
 #page-button {
     color: black;
 }
 
 #page-button:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
 

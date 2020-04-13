@@ -15,7 +15,6 @@
     height: 99%;
     width: 99%;
     overflow: hidden;
-    background-color: rgba(77,167,122,0.05);
 }
 /*style van het Algemeen-NU */
 .feed-title a{

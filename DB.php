@@ -36,7 +36,7 @@ class DB
     public $host = "localhost";
     public $databaseName = "afterpay";
     public $username = "root";
-    public $password = "klapot";
+    public $password = "";
 
     /**
      * @return string
@@ -104,8 +104,8 @@ class DB
      */
     public function getBirthdayEmployees(): array
     {
-        $sql = "SELECT * FROM Employee WHERE birthday = CURDATE() AND birthdayDisplay = 'true' ORDER BY employeeName DESC";
-
+        $sql = "SELECT * FROM Employee WHERE DATE_FORMAT(birthday, '%m-%d') = DATE_FORMAT(CURRENT_DATE(), '%m-%d') AND birthdayDisplay = 'true' ORDER BY employeeName DESC";
+      
         $conn = $this->createConnection();
         $stmtSelect = $conn->prepare($sql);
         $stmtSelect->execute();
