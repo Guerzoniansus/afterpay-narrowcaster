@@ -36,7 +36,7 @@ class DB
     public $host = "localhost";
     public $databaseName = "afterpay";
     public $username = "root";
-    public $password = "klapot";
+    public $password = "";
 
     /**
      * @return string
