@@ -29,7 +29,7 @@ function insertWidgetContainer(array $widgets, int $widgetIndex, int $height) {
 
     if ($widgetName == "empty") {
         ?>
-        <div class="widget-container empty-widget w-100 h-100 mx-auto my-auto border" style="height: <?= $height ?>px;">
+        <div class="widget-container empty-widget w-100 h-100  mx-auto my-auto <?= $edit == true ? 'border' : '' ?>" style="height: <?= $height ?>px;">
             <img id="<?= $widgetIndex ?>" class="plus-icon add-widget-plus-button" src="images/plus-solid.svg">
         </div>
         <?php
