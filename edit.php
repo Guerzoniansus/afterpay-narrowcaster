@@ -32,18 +32,18 @@ if (!empty($_GET["pageName"])) {
 
     <!-- Top bar -->
     <div class="row" id="navbar">
-        <div class="col-2">
+        <div class="col-4">
             <a href="editpages.php" style="text-decoration: none;" title="Go back to all pages"><h1 id="page-button">◄ Pages</h1></a>
         </div>
-        <div class="col-8">
+        <div class="col-4">
             <div style="display: flex; justify-content: center; align-items: center;">
                 <h1 align="center"><b>Page: <?= $pageName ?></b></h1>
             </div>
         </div>
-        <div class="col-2">
+        <div class="col-4">
             <div class="float-right">
                 <a href="display.php" target="_blank" onclick="goToDisplayPage()">
-                    <img id="display-redirect-button" title="Open display page in a new tab" class="img" src="images/redirect.svg" height="40px">
+                    <a href="editpages.php" style="text-decoration: none;" target="_blank" title="Open slideshow in a new tab"><h1 id="page-button">Go to slideshow ►</h1></a>
                 </a>
             </div>
         </div>
