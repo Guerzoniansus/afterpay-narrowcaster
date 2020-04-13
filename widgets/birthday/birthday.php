@@ -5,7 +5,7 @@ $db = new DB();
 $employees = $db->getBirthdayEmployees();
 
 ?>
-<div style="width: 100%; height: 100%; overflow: hidden; padding: 20px; font-size: 15px; text-align: center;">
+<div style="height: 100%; width: 100%; overflow: hidden; padding: 20px; font-size: 15px; text-align: center;">
 <h1> Verjaardagen 🎉 </h1>
 <? foreach ($employees as $employee): ?>
 <h5 style="background-color: rgba(77,167,122,1);"><?= $employee->employeeName ?></h5>
