@@ -1,5 +1,5 @@
 <?php
-require 'DB.php';
+require_once 'DB.php';
 
 $db = new DB();
 $employees = $db->getBirthdayEmployees();
