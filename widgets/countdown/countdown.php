@@ -1,4 +1,5 @@
-<p id="currentDateText"></p>
+<h1 id="currentDateText"></h1>
+<h1 id="currentTimeText"></h1>
 <p id="countdown-text"></p>
 
 <script>
@@ -31,17 +32,38 @@
            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-           document.getElementById("currentDateText").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-           document.getElementById("countdown-text").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+           
+           var today = new Date();
+           var d = new Date();
+    var month = new Array();
+    month[0] = "January";
+    month[1] = "February";
+    month[2] = "March";
+    month[3] = "April";
+    month[4] = "May";
+    month[5] = "June";
+    month[6] = "July";
+    month[7] = "August";
+    month[8] = "September";
+    month[9] = "October";
+    month[10] = "November";
+    month[11] = "December";
+    var monthLetters = month[d.getMonth()];
+    
+            var date = today.getDate() +' '+ (monthLetters)+' '+ today.getFullYear();
+            var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+            document.getElementById("currentDateText").innerHTML = date;
+            document.getElementById("currentTimeText").innerHTML = time;
+           document.getElementById("countdown-text").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s " + "until Friday 16:30.";
 
            if (distance < 0) {
                clearInterval(x);
                var day = new Date().getDay();
                var weekend = day == 6 || day == 0;
                if (weekend) {
-                   // Show image
+                document.getElementById("countdown-text").innerHTML = "WEEKEND!";
                }
-               document.getElementById("countdown-text").innerHTML = "Er is iets fout gegaan?";
+               document.getElementById("countdown-text").innerHTML = "Something went wrong.";
            }
        }, 1000);
    });
