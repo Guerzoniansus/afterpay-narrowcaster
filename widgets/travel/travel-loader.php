@@ -25,7 +25,7 @@ function getData()
 $dataInfo = getData();
 
 ?>
-
+<br>
 <h1 align="center"><?php echo ($dataInfo['Stop']['TimingPointTown']); echo(" - "); echo ($dataInfo['Stop']['TimingPointName'])?></h1>
 <table id="travelTable" class="table table-striped">
     <thead>
