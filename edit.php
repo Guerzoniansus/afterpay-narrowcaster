@@ -124,6 +124,11 @@ if (!empty($_GET["pageName"])) {
                  title="Display birthdays of today">
         </div>
         <div class="widget-img-div">
+            <p class="widget-img-text">Travel Info</p>
+            <img id="travel" class="widget-img" src="images/widget-icons/9292.png"
+                 title="Display travel information">
+        </div>
+        <div class="widget-img-div">
             <p class="widget-img-text">Delete</p>
             <img id="empty" class="widget-img" src="images/widget-icons/delete.png"
                  title="Delete this widget">
