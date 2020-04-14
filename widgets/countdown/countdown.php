@@ -1,8 +1,8 @@
 <div id="countdown-div" class="countdown">
 <h1 id="countdown-text"></h1>
 </div>
+<h3 id="friday">Until Friday 16:30</h3>
 <h3 id="currentDateText"></h3>
-<h3 id="currentTimeText"></h3>
 <img id="partyimg" src="widgets/countdown/365.gif" style="display:none"></img>
 
 <script>
@@ -19,12 +19,12 @@
         countDownDate.setMinutes(30);
         countDownDate.setSeconds(0);
         countDownDate.setMilliseconds(0);
-
+        var friday = countDownDate;
         // Convert to number.
         countDownDate = countDownDate.getTime();
 
         // Update the count down every 1 second
-        setInterval(function() {
+        var x = setInterval(function() {
 
             // Get today's date and time
             var now = new Date().getTime();
@@ -56,10 +56,10 @@
             month[11] = "December";
             var monthLetters = month[d.getMonth()];
 
-            var date = today.getDate() + ' ' + (monthLetters) + ' ' + today.getFullYear();
-            var time = ToTwoDigits(today.getHours()) + ":" + ToTwoDigits(today.getMinutes()) + ":" + ToTwoDigits(today.getSeconds());
+            var date = friday.getDate() + ' ' + (monthLetters) + ' ' + friday.getFullYear();
+            // var time = ToTwoDigits(today.getHours()) + ":" + ToTwoDigits(today.getMinutes()) + ":" + ToTwoDigits(today.getSeconds());
             document.getElementById("currentDateText").innerHTML = date;
-            document.getElementById("currentTimeText").innerHTML = time;
+            //document.getElementById("currentTimeText").innerHTML = time;
             document.getElementById("countdown-text").innerHTML = days + "d " + ToTwoDigits(hours) + "h " + ToTwoDigits(minutes) + "m " + ToTwoDigits(seconds) + "s";
 
             if (distance < 0) {
@@ -72,7 +72,7 @@
                 else if (day == 5) {
                     // Friday
                     document.getElementById("partyimg").style.display = "block";
-                    document.getElementById("currentTimeText").style.display = "none";
+                    document.getElementById("friday").style.display = "none";
                     document.getElementById("countdown-text").innerHTML = "PARTY TIME!";
                 }
                 else {
@@ -81,7 +81,7 @@
             }
             else {
                 document.getElementById("partyimg").style.display = "none";
-                document.getElementById("currentTimeText").style.display = "block";
+                document.getElementById("friday").style.display = "block";
             }
         }, 1000);
     });
