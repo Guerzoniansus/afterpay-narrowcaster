@@ -57,9 +57,8 @@
             var monthLetters = month[d.getMonth()];
 
             var date = friday.getDate() + ' ' + (monthLetters) + ' ' + friday.getFullYear();
-            // var time = ToTwoDigits(today.getHours()) + ":" + ToTwoDigits(today.getMinutes()) + ":" + ToTwoDigits(today.getSeconds());
+            
             document.getElementById("currentDateText").innerHTML = date;
-            //document.getElementById("currentTimeText").innerHTML = time;
             document.getElementById("countdown-text").innerHTML = days + "d " + ToTwoDigits(hours) + "h " + ToTwoDigits(minutes) + "m " + ToTwoDigits(seconds) + "s";
 
             if (distance < 0) {
