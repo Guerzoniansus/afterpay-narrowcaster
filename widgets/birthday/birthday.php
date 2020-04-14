@@ -23,6 +23,6 @@ if (!function_exists("calculateAge")) {
 <? foreach ($employees as $employee): ?>
     <h1 style="background-color: #87CD9B;"><?= $employee->employeeName ?></h1>
     <h2>Age: <?= calculateAge($employee->birthday) ?></h2>
-    <p>Functie:   <?= $employee->function ?></p>
+    <p>Function:   <?= $employee->function ?></p>
 <? endforeach; ?>
 </div>
