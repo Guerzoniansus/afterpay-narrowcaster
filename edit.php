@@ -129,9 +129,19 @@ if (!empty($_GET["pageName"])) {
                  title="Display travel information">
         </div>
         <div class="widget-img-div">
+            <p class="widget-img-text">Calendar</p>
+            <img id="calendar" class="widget-img" src="images/widget-icons/calendar.png"
+                 title="Display a Google Calendar">
+        </div>
+        <div class="widget-img-div">
+            <p class="widget-img-text">Twitter</p>
+            <img id="twitterfeed" class="widget-img" src="images/widget-icons/twitter.png"
+                 title="Display AfterPay's Twitter feed">
+        </div>
+        <div class="widget-img-div">
             <p class="widget-img-text">Countdown</p>
             <img id="countdown" class="widget-img" src="images/widget-icons/countdown.png"
-                 title="Countdown till Friday">
+                 title="Countdown until Friday 16:30">
         </div>
         <div class="widget-img-div">
             <p class="widget-img-text">Delete</p>
