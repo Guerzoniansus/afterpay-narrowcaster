@@ -61,7 +61,7 @@
                var day = new Date().getDay();
                var weekend = day == 6 || day == 0;
                if (weekend) {
-                   // Show image
+                document.getElementById("countdown-text").innerHTML = "WEEKEND!";
                }
                document.getElementById("countdown-text").innerHTML = "Something went wrong.";
            }
