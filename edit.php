@@ -129,6 +129,11 @@ if (!empty($_GET["pageName"])) {
                  title="Display travel information">
         </div>
         <div class="widget-img-div">
+            <p class="widget-img-text">Countdown</p>
+            <img id="countdown" class="widget-img" src="images/widget-icons/countdown.png"
+                 title="Countdown till Friday">
+        </div>
+        <div class="widget-img-div">
             <p class="widget-img-text">Delete</p>
             <img id="empty" class="widget-img" src="images/widget-icons/delete.png"
                  title="Delete this widget">
