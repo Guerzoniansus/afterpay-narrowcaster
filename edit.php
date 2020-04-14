@@ -129,6 +129,11 @@ if (!empty($_GET["pageName"])) {
                  title="Display travel information">
         </div>
         <div class="widget-img-div">
+            <p class="widget-img-text">Calendar</p>
+            <img id="calendar" class="widget-img" src="images/widget-icons/calendar.png"
+                 title="Display a Google Calendar">
+        </div>
+        <div class="widget-img-div">
             <p class="widget-img-text">Delete</p>
             <img id="empty" class="widget-img" src="images/widget-icons/delete.png"
                  title="Delete this widget">
