@@ -36,7 +36,7 @@
 <div class="calendar-div" style="width: 90%; height: 90%">
 
 </div>
-<h3 style="margin:0px;">Insert Google Calendar URL here</h3>
+<h3 style="margin:0px;">Insert Google Calendar Embed URL here</h3>
 <p align="center">Height and Width will automatically get adjusted -
     Click <a target="_" href="https://support.google.com/calendar/answer/41207?hl=en">HERE</a> for instructions on how to get the URL
 <br> <b>Important:</b> Make sure you set your Calendar to <a href="https://docs.simplecalendar.io/make-google-calendar-public/" target="_blank">available to public</a>!</p>
