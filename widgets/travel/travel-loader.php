@@ -11,13 +11,13 @@ function getData()
 		die('error occured during curl exec. Additional info: ' . var_export($info));
 	}
 	curl_close($curl);
-	// Het JSON-bestand wordt omgezet naar een PHP array
+	// Convert JSON file to PHP array
 	$decoded = json_decode($curl_response, true);
 
 	if (isset($decoded->response->status) && $decoded->response->status == 'ERROR') {
 		die('Something went wrong: ' . $decoded->response->errormessage);
 	}
-	// Hierin zit DE informatie
+	// DE information
 	$allInfo = $decoded['hreoos']['24002020'];
 	return $allInfo;
 }
