@@ -134,6 +134,11 @@ if (!empty($_GET["pageName"])) {
                  title="Display a Google Calendar">
         </div>
         <div class="widget-img-div">
+            <p class="widget-img-text">Twitter</p>
+            <img id="twitterfeed" class="widget-img" src="images/widget-icons/twitter.png"
+                 title="Display AfterPay's Twitter feed">
+        </div>
+        <div class="widget-img-div">
             <p class="widget-img-text">Delete</p>
             <img id="empty" class="widget-img" src="images/widget-icons/delete.png"
                  title="Delete this widget">
