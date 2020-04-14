@@ -141,7 +141,7 @@ if (!empty($_GET["pageName"])) {
         <div class="widget-img-div">
             <p class="widget-img-text">Countdown</p>
             <img id="countdown" class="widget-img" src="images/widget-icons/countdown.png"
-                 title="Countdown till Friday">
+                 title="Countdown until Friday 16:30">
         </div>
         <div class="widget-img-div">
             <p class="widget-img-text">Delete</p>

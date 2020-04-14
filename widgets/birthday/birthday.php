@@ -16,7 +16,6 @@ if (!function_exists("calculateAge")) {
 
 ?>
 
-
 <div style="height: 100%; width: 100%; overflow: hidden; padding: 20px; font-size: 15px; text-align: center;">
 <h1> Birthdays 🎉 </h1>
     <br>

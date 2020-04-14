@@ -15,6 +15,7 @@ if (!function_exists("calculateAge")) {
 }
 
 ?>
+
 <div style="width: 100%; height: 100%; overflow: hidden; padding: 20px; font-size: 15px; text-align: center;">
 <a href="birthdaysettings.php" target="_blank">(Click here to choose whose birthday does or doesn't get shown)</a>
 <h1> Birthdays 🎉 </h1>
