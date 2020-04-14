@@ -146,9 +146,6 @@ if (!empty($_GET["pageName"])) {
         <div class="widget-img-div">
             <p class="widget-img-text"></p>
         </div>
-        <div class="widget-img-div">
-            <p class="widget-img-text"></p>
-        </div>
     </div>
 </div>
 </body>
