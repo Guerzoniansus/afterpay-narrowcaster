@@ -26,16 +26,23 @@ $dataInfo = getData();
 
 ?>
 
-<h1><?php echo ($dataInfo['Stop']['TimingPointTown']); echo(" - "); echo ($dataInfo['Stop']['TimingPointName'])?></h1>
-<table id="travelTable">
-	<?php foreach ($dataInfo['Passes'] as $passData) : ?>
-		<tr>
-			<td><?php echo ($passData['LinePublicNumber']) ?></td>
-			<td><?php echo ($passData['DestinationName50']) ?></td>
-			<td><?php $dt = new \DateTime($passData['ExpectedDepartureTime']);
-				echo $dt->format('H:i'); ?></td>
-		</tr>
-	<?php endforeach ?>
+<h1 align="center"><?php echo ($dataInfo['Stop']['TimingPointTown']); echo(" - "); echo ($dataInfo['Stop']['TimingPointName'])?></h1>
+<table id="travelTable" class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">Line</th>
+        <th scope="col">Bus direction</th>
+        <th scope="col">Departure</th>
+    </tr>
+    </thead>
+    <?php foreach ($dataInfo['Passes'] as $passData) : ?>
+        <tr>
+            <td><?php echo ($passData['LinePublicNumber']) ?></td>
+            <td><?php echo ($passData['DestinationName50']) ?></td>
+            <td><?php $dt = new \DateTime($passData['ExpectedDepartureTime']);
+                echo $dt->format('H:i'); ?></td>
+        </tr>
+    <?php endforeach ?>
 </table>
 
 <script>
