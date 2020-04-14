@@ -54,7 +54,7 @@
             var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
             document.getElementById("currentDateText").innerHTML = date;
             document.getElementById("currentTimeText").innerHTML = time;
-           document.getElementById("countdown-text").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s " + "until Friday.";
+           document.getElementById("countdown-text").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s " + "until Friday 16:30.";
 
            if (distance < 0) {
                clearInterval(x);
