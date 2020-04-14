@@ -66,6 +66,7 @@
 
             //TODO: Fix bug where this doesnt work when theres multiple of the same widgets on the same page
             let calendarURL = $(".calendar-input").val();
+            $(".calendar-input").val("");
 
             saveCalendar(calendarURL);
         });
